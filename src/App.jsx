@@ -1,7 +1,9 @@
 function App() {
   return (
     <div>
-      <h1 className="text-lg text-red-500">Redberry Resume Builder</h1>
+      <h1 className="font-helvetica-neue text-3xl text-red-500 all-small-caps">
+        Redberry Resume Builder
+      </h1>
     </div>
   );
 }
