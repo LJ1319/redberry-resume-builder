@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import logo01 from "../assets/img/logo01.svg";
-import logo02 from "../assets/img/logo02.svg";
+import logo01 from "../assets/img/logo01.png";
+import logo02 from "../assets/img/logo02.png";
 
 export default function HomePage() {
   return (
