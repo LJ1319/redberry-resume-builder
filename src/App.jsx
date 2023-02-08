@@ -1,10 +1,11 @@
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+
 function App() {
   return (
-    <div>
-      <h1 className="font-helvetica-neue text-3xl text-red-500 all-small-caps">
-        Redberry Resume Builder
-      </h1>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+    </Routes>
   );
 }
 

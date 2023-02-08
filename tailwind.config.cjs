@@ -6,6 +6,9 @@ module.exports = {
       fontFamily: {
         "helvetica-neue": ["HelveticaNeue"],
       },
+      backgroundImage: {
+        "home-hero": "url(./src/assets/img/home.svg)",
+      },
     },
   },
   plugins: [require("tailwindcss-opentype")],
