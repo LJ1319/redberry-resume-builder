@@ -7,7 +7,7 @@ module.exports = {
         "helvetica-neue": ["HelveticaNeue"],
       },
       backgroundImage: {
-        "home-hero": "url(./src/assets/img/home.jpg)",
+        "home-hero": "url(@/assets/img/home.jpg)",
       },
     },
   },
