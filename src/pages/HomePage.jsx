@@ -15,7 +15,7 @@ export default function HomePage() {
           className="absolute left-[1065px] top-[430px]"
         />
         <button className="z-10 h-16 w-3/12 rounded-lg  bg-black text-center font-helvetica-neue text-3xl text-white all-small-caps">
-          <Link to="/">რეზიუმეს დამატება</Link>
+          <Link to="build">რეზიუმეს დამატება</Link>
         </button>
       </div>
     </div>
