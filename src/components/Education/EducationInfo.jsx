@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
 
+// const reg = /^\w|[ა-ჰ]{2,}$/;
+
 export default function EducationInfo() {
   const [onChangeName, onChangePassword, setPage] = useOutletContext();
 
   useEffect(() => {
     setPage(2);
   }, [setPage]);
-
-  const reg = /^\w|[ა-ჰ]{2,}$/;
 
   return (
     <div className="font-helvetica-neue all-small-caps">
