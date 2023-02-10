@@ -43,18 +43,19 @@ export default function PersonalInfo() {
       </div>
 
       <div className="mx-44">
-        <label>
+        <label className="flex w-max cursor-pointer items-center text-center">
           <span className="text-lg">პირადი ფოტოს ატვირთვა</span>
-          <button className="mx-4 h-8 w-28 rounded bg-[#0E80BF] text-sm text-white">
+          <div className="mx-4 h-8 w-28 rounded bg-[#0E80BF] p-1 text-sm text-white">
             ატვირთვა
             <input
               type="file"
               hidden
               onChange={(e) => {
                 handleImageUpload(e.target.files[0]);
+                // console.log(typeof e.target.files[0]);
               }}
             />
-          </button>
+          </div>
         </label>
       </div>
     </>
