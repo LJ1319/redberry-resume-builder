@@ -11,7 +11,7 @@ export default function EducationInfo() {
   }, [setPage]);
 
   return (
-    <div className="font-helvetica-neue all-small-caps">
+    <>
       <input
         className="border-2 border-black"
         onChange={(e) => {
@@ -24,6 +24,6 @@ export default function EducationInfo() {
           onChangePassword(e.target.value);
         }}
       />
-    </div>
+    </>
   );
 }

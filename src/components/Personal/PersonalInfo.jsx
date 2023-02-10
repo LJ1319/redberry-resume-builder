@@ -19,25 +19,44 @@ export default function PersonalInfo() {
   }, [setPage]);
 
   return (
-    <div className="font-helvetica-neue all-small-caps">
-      <input
-        className="border-2 border-black"
-        onChange={(e) => {
-          onChangeName(e.target.value);
-        }}
-      />
-      <input
-        className="border-2 border-black"
-        onChange={(e) => {
-          onChangeLastName(e.target.value);
-        }}
-      />
-      <input
-        type="file"
-        onChange={(e) => {
-          handleImageUpload(e.target.files[0]);
-        }}
-      />
-    </div>
+    <>
+      <div className="mx-44 my-16 flex gap-12">
+        <label>
+          სახელი
+          <input
+            className="block w-80 border-2"
+            onChange={(e) => {
+              onChangeName(e.target.value);
+            }}
+          />
+        </label>
+
+        <label>
+          გვარი
+          <input
+            className="block w-80 border-2"
+            onChange={(e) => {
+              onChangeLastName(e.target.value);
+            }}
+          />
+        </label>
+      </div>
+
+      <div className="mx-44">
+        <label>
+          <span className="text-lg">პირადი ფოტოს ატვირთვა</span>
+          <button className="mx-4 h-8 w-28 rounded bg-[#0E80BF] text-sm text-white">
+            ატვირთვა
+            <input
+              type="file"
+              hidden
+              onChange={(e) => {
+                handleImageUpload(e.target.files[0]);
+              }}
+            />
+          </button>
+        </label>
+      </div>
+    </>
   );
 }
