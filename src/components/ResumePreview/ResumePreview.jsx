@@ -4,11 +4,13 @@ export default function ResumePreview({ name, lastName, image }) {
       <p>resume preview</p>
       <p>{name}</p>
       <p>{lastName}</p>
-      <img
-        src={image}
-        alt="userImage"
-        className="h-56 w-56 rounded-full text-center"
-      />
+      {image ? (
+        <img
+          src={image}
+          alt="userImage"
+          className="h-56 w-56 rounded-full text-center"
+        />
+      ) : null}
     </div>
   );
 }
