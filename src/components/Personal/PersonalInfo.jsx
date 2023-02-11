@@ -11,12 +11,21 @@ import { useOutletContext } from "react-router-dom";
 // console.log(geoPhoneRegex.test(number));
 
 export default function PersonalInfo() {
-  const [onChangeName, onChangeLastName, setPage, handleImageUpload] =
-    useOutletContext();
+  const [setName, setLastName, setPage, setImage] = useOutletContext();
 
   useEffect(() => {
     setPage(0);
   }, [setPage]);
+
+  const handleImageUpload = (file) => {
+    // console.log(file);
+    let reader = new FileReader();
+    reader.addEventListener("load", () => {
+      setImage(reader.result);
+      localStorage.setItem("recent-image", reader.result);
+    });
+    reader.readAsDataURL(file);
+  };
 
   return (
     <>
@@ -26,7 +35,7 @@ export default function PersonalInfo() {
           <input
             className="block w-80 border-2"
             onChange={(e) => {
-              onChangeName(e.target.value);
+              setName(e.target.value);
             }}
           />
         </label>
@@ -36,7 +45,7 @@ export default function PersonalInfo() {
           <input
             className="block w-80 border-2"
             onChange={(e) => {
-              onChangeLastName(e.target.value);
+              setLastName(e.target.value);
             }}
           />
         </label>

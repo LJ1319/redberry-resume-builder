@@ -19,24 +19,6 @@ export default function BuildPage() {
   const titlesSize = Object.keys(titles).length;
   const index = Number(Object.keys(titles)[page]) + 1;
 
-  const onChangeName = (newValue) => {
-    setName(newValue);
-  };
-
-  const onChangeLastName = (value) => {
-    setLastName(value);
-  };
-
-  const handleImageUpload = (file) => {
-    // console.log(file);
-    let reader = new FileReader();
-    reader.addEventListener("load", () => {
-      setImage(reader.result);
-      localStorage.setItem("recent-image", reader.result);
-    });
-    reader.readAsDataURL(file);
-  };
-
   useEffect(() => {
     setImage(localStorage.getItem("recent-image"));
   }, []);
@@ -47,14 +29,7 @@ export default function BuildPage() {
         <Navbar title={title} titlesSize={titlesSize} index={index} />
 
         <div className="flex h-screen flex-col bg-[#F9F9F9] font-helvetica-neue">
-          <Outlet
-            context={[
-              onChangeName,
-              onChangeLastName,
-              setPage,
-              handleImageUpload,
-            ]}
-          />
+          <Outlet context={[setName, setLastName, setPage, setImage]} />
         </div>
       </div>
       <ResumePreview name={name} lastName={lastName} image={image} />
