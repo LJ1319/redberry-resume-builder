@@ -90,7 +90,10 @@ export default function PersonalInfoForm({ saveForm, ...props }) {
       </div>
 
       <div className="mx-44 w-9/12 flex justify-end my-16">
-        <button className="h-12 w-36 rounded bg-[#6B40E3] hover:bg-[#7949FF] active:bg-[#512FAF]">
+        <button
+          type="submit"
+          className="h-12 w-36 rounded bg-[#6B40E3] hover:bg-[#7949FF] active:bg-[#512FAF]"
+        >
           <Link
             to="experience"
             className="block h-full text-center p-1 font-helvetica-neue text-2xl text-white all-small-caps"
