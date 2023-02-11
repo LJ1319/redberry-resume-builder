@@ -22,7 +22,7 @@ export default function HomePage() {
         <button className="z-10 h-16 w-3/12 rounded-lg bg-[#1A1A1A]">
           <Link
             to="build"
-            className="block text-center font-helvetica-neue text-3xl text-white all-small-caps"
+            className="block h-full p-2.5 text-center font-helvetica-neue text-3xl text-white all-small-caps"
           >
             რეზიუმეს დამატება
           </Link>

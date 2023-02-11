@@ -4,6 +4,7 @@ export default function ResumePreview({ initialValues }) {
       <p>resume preview</p>
       <p>{initialValues.name}</p>
       <p>{initialValues.surname}</p>
+
       {initialValues.image ? (
         <img
           src={initialValues.image}
@@ -11,6 +12,7 @@ export default function ResumePreview({ initialValues }) {
           className="h-56 w-56 rounded-full text-center"
         />
       ) : null}
+
       {initialValues.experiences.map((experience, index) => (
         <div key={index}>
           <p>{experience.position}</p>
@@ -20,6 +22,8 @@ export default function ResumePreview({ initialValues }) {
           <p>{experience.description}</p>
         </div>
       ))}
+
+      <p>{initialValues.about_me}</p>
     </div>
   );
 }

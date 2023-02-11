@@ -10,7 +10,7 @@ export default function Navbar({ title, titlesSize, index }) {
         </Link>
       </button>
 
-      <div className="flex w-8/12 items-center justify-between border-b-[1px] border-[#1A1A1A] py-2">
+      <div className="flex w-9/12 items-center justify-between border-b-[1px] border-[#1A1A1A] py-2">
         <h1 className="text-4xl font-bold">{title}</h1>
         <span className="text-2xl">{`${index}/${titlesSize}`}</span>
       </div>
