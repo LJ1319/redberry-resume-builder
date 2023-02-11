@@ -1,8 +1,13 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import logo01 from "../assets/img/logo01.png";
 import logo02 from "../assets/img/logo02.png";
 
 export default function HomePage() {
+  useEffect(() => {
+    localStorage.clear();
+  }, []);
+
   return (
     <div className="h-screen w-screen bg-home-hero bg-cover bg-center bg-no-repeat">
       <div className="mx-auto w-11/12 border-b-[1px] border-[#1A1A1A] py-6">

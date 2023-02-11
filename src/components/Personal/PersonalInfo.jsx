@@ -50,6 +50,7 @@ export default function PersonalInfo() {
             <input
               type="file"
               hidden
+              accept="image/*"
               onChange={(e) => {
                 handleImageUpload(e.target.files[0]);
                 // console.log(typeof e.target.files[0]);
