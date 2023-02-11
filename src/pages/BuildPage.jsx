@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/layout/Navbar";
 import ResumePreview from "../components/ResumePreview/ResumePreview";

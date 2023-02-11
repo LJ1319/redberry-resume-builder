@@ -1,29 +1,25 @@
+import { Formik } from "formik";
 import { useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
+import ExperienceInfoForm from "./ExperienceInfoForm";
 
 // const reg = /^\w|[ა-ჰ]{2,}$/;
 
 export default function ExperienceInfo() {
-  const [onChangeName, onChangePassword, setPage] = useOutletContext();
+  const [setPage, initialValues, handleUpdateForm, handleSubmit] =
+    useOutletContext();
 
   useEffect(() => {
     setPage(1);
   }, [setPage]);
 
   return (
-    <>
-      <input
-        className="border-2 border-black"
-        onChange={(e) => {
-          onChangeName(e.target.value);
-        }}
-      />
-      <input
-        className="border-2 border-black"
-        onChange={(e) => {
-          onChangePassword(e.target.value);
-        }}
-      />
-    </>
+    <Formik
+      enableReinitialize
+      initialValues={initialValues}
+      onSubmit={handleSubmit}
+    >
+      {(props) => <ExperienceInfoForm saveForm={handleUpdateForm} {...props} />}
+    </Formik>
   );
 }

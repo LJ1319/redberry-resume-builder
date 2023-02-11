@@ -11,6 +11,15 @@ export default function ResumePreview({ initialValues }) {
           className="h-56 w-56 rounded-full text-center"
         />
       ) : null}
+      {initialValues.experiences.map((experience, index) => (
+        <div key={index}>
+          <p>{experience.position}</p>
+          <p>{experience.employer}</p>
+          <p>{experience.start_date}</p>
+          <p>{experience.due_date}</p>
+          <p>{experience.description}</p>
+        </div>
+      ))}
     </div>
   );
 }
