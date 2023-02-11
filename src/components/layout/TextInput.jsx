@@ -1,5 +1,7 @@
 import { useField } from "formik";
 
+import error from "../../assets/icons/error.svg";
+
 export default function TextInput({ label, ...props }) {
   const [field, meta] = useField(props);
 
@@ -19,7 +21,9 @@ export default function TextInput({ label, ...props }) {
       </label>
 
       {meta.touched && meta.error ? (
-        <div className="text-red-500">{meta.error}</div>
+        <div className="text-red-500">
+          <img src={error} alt="error" />
+        </div>
       ) : null}
     </>
   );
