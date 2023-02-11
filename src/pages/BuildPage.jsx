@@ -1,27 +1,64 @@
+import { useCallback } from "react";
 import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/layout/Navbar";
 import ResumePreview from "../components/ResumePreview/ResumePreview";
+import { useLocalStorageState } from "../hooks/useLocalStorageState";
 
-const titles = {
+const TITLES = {
   0: "პირადი ინფო",
   1: "გამოცდილება",
   2: "განათლება",
 };
 
+const LOCAL_STORAGE_KEY = "RESUME";
+
+const INITIAL_VALUES = {
+  name: "",
+  surname: "",
+  email: "",
+  phone_number: "",
+  experiences: [
+    {
+      position: "",
+      employer: "",
+      start_date: "",
+      due_date: "",
+      description: "",
+    },
+  ],
+  educations: [
+    {
+      institute: "",
+      degree: "",
+      due_date: "",
+      description: "",
+    },
+  ],
+  image: "",
+  about_me: "",
+};
+
 export default function BuildPage() {
-  const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [page, setPage] = useState(0);
-  const [image, setImage] = useState("");
+  const [initialValues, handleUpdateForm] = useLocalStorageState({
+    key: LOCAL_STORAGE_KEY,
+    value: INITIAL_VALUES,
+  });
 
-  const title = titles[page];
-  const titlesSize = Object.keys(titles).length;
-  const index = Number(Object.keys(titles)[page]) + 1;
-
-  useEffect(() => {
-    setImage(localStorage.getItem("recent-image"));
+  const handleSubmit = useCallback((values) => {
+    console.log({
+      fileName: values.file.name,
+      type: values.file.type,
+      size: `${values.file.size} bytes`,
+    });
   }, []);
+
+  const [page, setPage] = useState(0);
+  const title = TITLES[page];
+  const titlesSize = Object.keys(TITLES).length;
+  const index = Number(Object.keys(TITLES)[page]) + 1;
+
+  console.log(initialValues);
 
   return (
     <div className="flex flex-row">
@@ -29,10 +66,12 @@ export default function BuildPage() {
         <Navbar title={title} titlesSize={titlesSize} index={index} />
 
         <div className="flex h-screen flex-col bg-[#F9F9F9] font-helvetica-neue">
-          <Outlet context={[setName, setLastName, setPage, setImage]} />
+          <Outlet
+            context={[setPage, initialValues, handleUpdateForm, handleSubmit]}
+          />
         </div>
       </div>
-      <ResumePreview name={name} lastName={lastName} image={image} />
+      <ResumePreview initialValues={initialValues} />
     </div>
   );
 }
