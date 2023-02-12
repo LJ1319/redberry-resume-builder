@@ -1,4 +1,3 @@
-import { useCallback } from "react";
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/layout/Navbar";
@@ -45,20 +44,10 @@ export default function BuildPage() {
     value: INITIAL_VALUES,
   });
 
-  const handleSubmit = useCallback((values) => {
-    console.log({
-      fileName: values.file.name,
-      type: values.file.type,
-      size: `${values.file.size} bytes`,
-    });
-  }, []);
-
   const [page, setPage] = useState(0);
   const title = TITLES[page];
   const titlesSize = Object.keys(TITLES).length;
   const index = Number(Object.keys(TITLES)[page]) + 1;
-
-  console.log(initialValues);
 
   return (
     <div className="flex flex-row">
@@ -66,9 +55,7 @@ export default function BuildPage() {
         <Navbar title={title} titlesSize={titlesSize} index={index} />
 
         <div className="flex h-screen flex-col bg-[#F9F9F9] font-helvetica-neue">
-          <Outlet
-            context={[setPage, initialValues, handleUpdateForm, handleSubmit]}
-          />
+          <Outlet context={[setPage, initialValues, handleUpdateForm]} />
         </div>
       </div>
       <ResumePreview initialValues={initialValues} />

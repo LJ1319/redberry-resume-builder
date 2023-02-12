@@ -6,18 +6,22 @@ import { Form } from "formik";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+
 import TextArea from "../layout/TextArea";
 import TextInput from "../layout/TextInput";
 
 import check from "../../assets/icons/check.svg";
 import error from "../../assets/icons/error.svg";
+import { useNavigate } from "react-router-dom";
 
 export default function PersonalInfoForm({ saveForm, ...props }) {
   useEffect(() => {
     saveForm(props.values);
   }, [props.values, saveForm]);
 
-  // console.log(props.errors);
+  console.log(props.isValid);
+
+  const navigate = useNavigate();
 
   const [image, setImage] = useState("");
 
@@ -36,25 +40,26 @@ export default function PersonalInfoForm({ saveForm, ...props }) {
     setImage(localStorage.getItem("recent-image"));
   }, []);
 
-  function replacePhoneInput(e) {
-    // e.target.value = e.target.value.replace(/[^+\dA-Z]/g, "");
+  // TODO:
+  // function replacePhoneInput(e) {
+  //   // e.target.value = e.target.value.replace(/[^+\dA-Z]/g, "");
 
-    console.log(e);
-    e.target.value = e.target.value.replace(/[^+\dA-Z]/g, "");
+  //   console.log(e);
+  //   e.target.value = e.target.value.replace(/[^+\dA-Z]/g, "");
 
-    e.target.value =
-      e.target.value.slice(0, 4) +
-      " " +
-      e.target.value.slice(4, 7) +
-      " " +
-      e.target.value.slice(7, 9) +
-      " " +
-      e.target.value.slice(9, 11) +
-      " " +
-      e.target.value.slice(11, 13).trim();
+  //   e.target.value =
+  //     e.target.value.slice(0, 4) +
+  //     " " +
+  //     e.target.value.slice(4, 7) +
+  //     " " +
+  //     e.target.value.slice(7, 9) +
+  //     " " +
+  //     e.target.value.slice(9, 11) +
+  //     " " +
+  //     e.target.value.slice(11, 13).trim();
 
-    console.log(e.target.value);
-  }
+  //   console.log(e.target.value);
+  // }
 
   return (
     <Form>
@@ -130,17 +135,13 @@ export default function PersonalInfoForm({ saveForm, ...props }) {
         </span>
       </div>
 
+      {props.values.isValid && navigate("experience")}
       <div className="mx-44 w-9/12 flex justify-end my-16">
         <button
           type="submit"
-          className="h-12 w-36 rounded bg-[#6B40E3] hover:bg-[#7949FF] active:bg-[#512FAF]"
+          className="h-12 w-36 rounded bg-[#6B40E3] hover:bg-[#7949FF] active:bg-[#512FAF] font-helvetica-neue text-2xl text-white all-small-caps"
         >
-          <Link
-            to="experience"
-            className="block h-full text-center p-1 font-helvetica-neue text-2xl text-white all-small-caps"
-          >
-            შემდეგი
-          </Link>
+          შემდეგი
         </button>
       </div>
     </Form>

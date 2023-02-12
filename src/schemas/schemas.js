@@ -22,9 +22,7 @@ export const personalInfoSchema = yup.object().shape({
     })
     .required("სავალდებულო!"),
   image: yup.string().required("სავალდებულო!"),
-  about_me: yup
-    .string()
-    .matches(geoRegex, { message: "მხოლოდ ქართული სიმბოლოები!" }),
+  about_me: yup.string(),
   email: yup
     .string()
     .email()
