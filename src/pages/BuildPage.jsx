@@ -58,7 +58,7 @@ export default function BuildPage() {
           <Outlet context={[setPage, initialValues, handleUpdateForm]} />
         </div>
       </div>
-      <ResumePreview initialValues={initialValues} />
+      <ResumePreview initialValues={initialValues} page={page} />
     </div>
   );
 }

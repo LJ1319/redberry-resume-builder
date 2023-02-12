@@ -2,12 +2,14 @@ import email from "../../assets/icons/email.svg";
 import phone from "../../assets/icons/phone.svg";
 import logo03 from "../../assets/img/logo03.png";
 
-export default function ResumePreview({ initialValues }) {
-  // console.log(initialValues);
-
+export default function ResumePreview({ initialValues, page }) {
   return (
     <div className="flex flex-col h-screen w-5/12 p-12 font-helvetica-neue">
-      <div className="w-full h-full flex justify-between">
+      <div
+        className={`w-full h-max pb-6 flex justify-between ${
+          page > 0 ? "border-b-[1px] border-[#C8C8C8]" : null
+        }`}
+      >
         <div className="flex flex-col">
           <span className="text-6xl font-bold text-redberry-red all-small-caps">
             {initialValues.name} {initialValues.surname}
@@ -46,12 +48,16 @@ export default function ResumePreview({ initialValues }) {
           <img
             src={initialValues.image}
             alt="userImage"
-            className="h-64 w-64 rounded-full text-center"
+            className="h-56 w-56 rounded-full text-center"
           />
         ) : null}
       </div>
 
-      <div className="h-full">
+      <div
+        className={`w-full h-max pb-6 flex justify-between ${
+          page > 1 ? "border-b-[1px] border-[#C8C8C8]" : null
+        }`}
+      >
         {initialValues.experiences.map((experience, index) => (
           <div key={index}>
             <span>{experience.position}</span>
@@ -59,6 +65,17 @@ export default function ResumePreview({ initialValues }) {
             <span>{experience.start_date}</span>
             <span>{experience.due_date}</span>
             <span>{experience.description}</span>
+          </div>
+        ))}
+      </div>
+
+      <div className="w-full h-full pb-6 flex justify-between">
+        {initialValues.educations.map((education, index) => (
+          <div key={index}>
+            <span>{education.institute}</span>
+            <span>{education.degree}</span>
+            <span>{education.due_date}</span>
+            <span>{education.description}</span>
           </div>
         ))}
       </div>
