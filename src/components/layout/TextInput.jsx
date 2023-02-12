@@ -1,25 +1,10 @@
 import { useField } from "formik";
-import { useState } from "react";
 
 import error from "../../assets/icons/error.svg";
 // import check from "../../assets/icons/check.svg";
 
 export default function TextInput({ label, ...props }) {
   const [field, meta] = useField(props);
-
-  // const [didFocus, setDidFocus] = useState(false);
-  // const handleFocus = () => setDidFocus(true);
-  // const showFeedback =
-  //   (!!didFocus && field.value.trim().length > 2) || meta.touched;
-
-  // console.log(props);
-  // console.log(field.onBlur);
-
-  // console.log(field.value);
-
-  // console.log(meta.isValid);
-
-  // console.log(meta.error);
 
   return (
     <div>

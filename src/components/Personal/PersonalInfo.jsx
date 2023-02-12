@@ -13,11 +13,12 @@ export default function PersonalInfo() {
     setPage(0);
   }, [setPage]);
 
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   const navigate = useNavigate();
 
   const handleSubmit = useCallback(
-    (values) => {
-      // console.log(values);
+    async (values) => {
+      await sleep(500);
       navigate("experience");
     },
     [navigate]
