@@ -16,7 +16,6 @@ export default function ExperienceInfo() {
 
   return (
     <Formik
-      enableReinitialize
       initialValues={initialValues}
       validationSchema={experienceInfoSchema}
       onSubmit={handleSubmit}

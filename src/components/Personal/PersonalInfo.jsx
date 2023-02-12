@@ -14,7 +14,6 @@ export default function PersonalInfo() {
 
   return (
     <Formik
-      enableReinitialize
       initialValues={initialValues}
       validationSchema={personalInfoSchema}
       onSubmit={handleSubmit}

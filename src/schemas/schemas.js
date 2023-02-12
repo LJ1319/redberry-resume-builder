@@ -1,9 +1,9 @@
 import * as yup from "yup";
 
-const anyReg = /^.{2,}$/;
+// const anyReg = /^.{2,}$/;
 const geoRegex = /^[ა-ჰ]{2,}$/;
 const multiReg = /^\w|[ა-ჰ]{2,}$/;
-const geoPhoneRegex = /^\+(995) (\d{3} \d{2} \d{2} \d{2})$/;
+const geoPhoneRegex = /^\+(995)(\d{3}\d{2}\d{2}\d{2})$/;
 const redberryEmailRegex = /^\w[\w.-]{0,25}@(redberry)\.ge$/;
 
 export const personalInfoSchema = yup.object().shape({
