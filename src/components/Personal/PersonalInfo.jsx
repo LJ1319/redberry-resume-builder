@@ -17,7 +17,7 @@ export default function PersonalInfo() {
 
   const handleSubmit = useCallback(
     (values) => {
-      console.log(values);
+      // console.log(values);
       navigate("experience");
     },
     [navigate]

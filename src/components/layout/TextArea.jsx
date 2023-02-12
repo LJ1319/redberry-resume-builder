@@ -1,6 +1,6 @@
 import { useField } from "formik";
 
-import error from "../../assets/icons/error.svg";
+// import error from "../../assets/icons/error.svg";
 
 export default function TextArea({ label, ...props }) {
   const [field, meta] = useField(props);
@@ -12,7 +12,12 @@ export default function TextArea({ label, ...props }) {
         <textarea
           {...field}
           {...props}
-          className="my-2 p-4 block w-full h-28 border-[1px] border-[#BCBCBC] rounded focus:outline-none focus:border-2"
+          className={`my-2 p-4 block w-full h-28 border-[1px]  rounded focus:outline-none focus:border-2 
+          ${
+            meta.touched && meta.value
+              ? "border-[#98E37E] bg-[url(@/assets/icons/check.svg)] bg-no-repeat bg-right bg-origin-content"
+              : "border-[#BCBCBC]"
+          }`}
           // className={`p-4 w-full border-[1px] h-28 rounded my-2 focus:outline-none focus:border-2 ${
           //   meta.touched && meta.error
           //     ? "border-red-500"

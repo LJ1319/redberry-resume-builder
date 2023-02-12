@@ -4,6 +4,12 @@ export default function ResumePreview({ initialValues }) {
       <p>resume preview</p>
       <p>{initialValues.name}</p>
       <p>{initialValues.surname}</p>
+      <p>
+        {initialValues.phone_number.replace(
+          /(\d{3})(\d{3})(\d{2})(\d{2})(\d{2})/,
+          "$1 $2 $3 $4 $5"
+        )}
+      </p>
 
       {initialValues.image ? (
         <img

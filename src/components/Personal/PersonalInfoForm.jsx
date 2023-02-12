@@ -17,7 +17,7 @@ export default function PersonalInfoForm({ saveForm, ...props }) {
     saveForm(props.values);
   }, [props.values, saveForm]);
 
-  console.log(props.isValid);
+  // console.log(props.errors);
 
   const [image, setImage] = useState("");
 
@@ -26,37 +26,37 @@ export default function PersonalInfoForm({ saveForm, ...props }) {
     let file = event.target.files[0];
     reader.addEventListener("load", () => {
       setImage(reader.result);
-      localStorage.setItem("recent-image", reader.result);
       props.setFieldValue("image", reader.result);
     });
     reader.readAsDataURL(file);
   };
 
   useEffect(() => {
-    setImage(localStorage.getItem("recent-image"));
-    // setImage(JSON.parse(localStorage.getItem("RESUME[image]")));
-    // console.log(JSON.parse(localStorage.getItem("RESUME"["image"])));
+    setImage(JSON.parse(localStorage.getItem("RESUME")).image);
   }, []);
 
   // TODO:
   // function replacePhoneInput(e) {
-  //   // e.target.value = e.target.value.replace(/[^+\dA-Z]/g, "");
-
-  //   console.log(e);
-  //   e.target.value = e.target.value.replace(/[^+\dA-Z]/g, "");
-
-  //   e.target.value =
-  //     e.target.value.slice(0, 4) +
-  //     " " +
-  //     e.target.value.slice(4, 7) +
-  //     " " +
-  //     e.target.value.slice(7, 9) +
-  //     " " +
-  //     e.target.value.slice(9, 11) +
-  //     " " +
-  //     e.target.value.slice(11, 13).trim();
-
-  //   console.log(e.target.value);
+  // e.target.value = e.target.value.replace(/[^+\dA-Z]/g, "");
+  // .replace(/(.{4})/g, "$1 ")
+  // .trim();
+  // console.log(e);
+  // e.target.value = e.target.value.replace(/[^+\dA-Z]/g, "");
+  // e.target.value =
+  //   e.target.value.slice(0, 4) +
+  //   " " +
+  //   e.target.value.slice(4, 7) +
+  //   " " +
+  //   e.target.value.slice(7, 9) +
+  //   " " +
+  //   e.target.value.slice(9, 11) +
+  //   " " +
+  //   e.target.value.slice(11, 13);
+  // console.log(e.target.value);
+  // e.target.value = e.target.value.replace(
+  //   /(\d{3})(\d{3})(\d{2})(\d{2})(\d{2})/,
+  //   "$1 $2 $3 $4 $5"
+  // );
   // }
 
   return (
@@ -126,7 +126,7 @@ export default function PersonalInfoForm({ saveForm, ...props }) {
           label="მობილურის ნომერი"
           name="phone_number"
           placeholder="+995 551 12 34 56"
-          // onBlur={replacePhoneInput}
+          // onKeyUp={replacePhoneInput}
         />
         <span className="text-sm text-[#2e2e2e]">
           უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს
