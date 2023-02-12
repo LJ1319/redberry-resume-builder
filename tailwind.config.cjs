@@ -7,6 +7,9 @@ module.exports = {
       fontFamily: {
         "helvetica-neue": ["HelveticaNeue"],
       },
+      colors: {
+        "redberry-red": "#F93B1D",
+      },
       backgroundImage: {
         "home-hero": "url(@/assets/img/home.jpg)",
       },
