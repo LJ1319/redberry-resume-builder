@@ -24,12 +24,12 @@ export default function TextInput({ label, ...props }) {
         <input
           {...field}
           {...props}
-          className={`px-4 w-full border-[1px] border-[#BCBCBC] h-12 rounded my-2 focus:outline-none focus:border-2 ${
-            meta.touched && meta.error && "border-red-500"
-          } ${
-            meta.value &&
-            !meta.error &&
-            "border-[#98E37E] bg-[url(@/assets/icons/check.svg)] bg-no-repeat bg-right bg-origin-content"
+          className={`px-4 w-full border-[1px] h-12 rounded my-2 focus:outline-none focus:border-2 ${
+            meta.touched && meta.error
+              ? "border-red-500"
+              : meta.value && !meta.error
+              ? "border-[#98E37E] bg-[url(@/assets/icons/check.svg)] bg-no-repeat bg-right bg-origin-content"
+              : "border-[#BCBCBC]"
           }`}
         />
       </label>

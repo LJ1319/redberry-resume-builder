@@ -5,14 +5,12 @@
 import { Form } from "formik";
 import { useState } from "react";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
 
 import TextArea from "../layout/TextArea";
 import TextInput from "../layout/TextInput";
 
 import check from "../../assets/icons/check.svg";
 import error from "../../assets/icons/error.svg";
-import { useNavigate } from "react-router-dom";
 
 export default function PersonalInfoForm({ saveForm, ...props }) {
   useEffect(() => {
@@ -20,8 +18,6 @@ export default function PersonalInfoForm({ saveForm, ...props }) {
   }, [props.values, saveForm]);
 
   console.log(props.isValid);
-
-  const navigate = useNavigate();
 
   const [image, setImage] = useState("");
 
@@ -38,6 +34,8 @@ export default function PersonalInfoForm({ saveForm, ...props }) {
 
   useEffect(() => {
     setImage(localStorage.getItem("recent-image"));
+    // setImage(JSON.parse(localStorage.getItem("RESUME[image]")));
+    // console.log(JSON.parse(localStorage.getItem("RESUME"["image"])));
   }, []);
 
   // TODO:
@@ -135,7 +133,6 @@ export default function PersonalInfoForm({ saveForm, ...props }) {
         </span>
       </div>
 
-      {props.values.isValid && navigate("experience")}
       <div className="mx-44 w-9/12 flex justify-end my-16">
         <button
           type="submit"
