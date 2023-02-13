@@ -2,12 +2,16 @@ import { useField } from "formik";
 import { useEffect, useState, useRef } from "react";
 
 import downarrow from "../../assets/icons/downarrow.svg";
+import { useLocalStorageState } from "../../hooks/useLocalStorageState";
 
 export default function CustomSelect({ data, text, ...props }) {
   const [field, meta, helpers] = useField(props);
   const node = useRef();
 
-  const [selected, setSelected] = useState("");
+  const [selected, setSelected] = useLocalStorageState({
+    key: "SELECTED",
+    value: false,
+  });
   const [open, setOpen] = useState(false);
 
   const show = () => {
