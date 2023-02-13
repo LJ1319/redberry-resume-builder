@@ -1,15 +1,34 @@
+import { useEffect } from "react";
+import { useState } from "react";
 import email from "../../assets/icons/email.svg";
 import phone from "../../assets/icons/phone.svg";
 import logo03 from "../../assets/img/logo03.png";
 
 export default function ResumePreview({ initialValues, page }) {
-  // console.log(initialValues.experiences);
+  // console.log(initialValues);
+  // let experience = false;
+  // initialValues.experiences.map(
+  //   (exp) => (experience = Object.values(exp).every((x) => x === ""))
+  // );
+  // console.log(experience);
+
+  // const [isPersonalVisited, setIsPersonalVisited] = useState(false);
+  const [isExperienceIsVisited, setIsExperienceVisited] = useState(false);
+  const [isEducationVisited, setIsEducationVisited] = useState(false);
+
+  useEffect(() => {
+    // page === 0 && setIsPersonalVisited(true);
+    page === 1 && setIsExperienceVisited(true);
+    page === 2 && setIsEducationVisited(true);
+  });
+
+  // console.log(page);
 
   return (
     <div className="flex flex-col h-screen w-5/12 p-14 bg-white">
       <div
         className={`w-full h-max pb-6 flex justify-between ${
-          page > 0 ? "border-b-[1px] border-[#C8C8C8]" : null
+          isExperienceIsVisited ? "border-b-[1px] border-[#C8C8C8]" : null
         }`}
       >
         <div className="flex flex-col">
@@ -57,12 +76,21 @@ export default function ResumePreview({ initialValues, page }) {
 
       <div
         className={`w-full h-max pt-2 pb-6 flex flex-col justify-between ${
-          page > 1 ? "border-b-[1px] border-[#C8C8C8]" : null
+          isEducationVisited ? "border-b-[1px] border-[#C8C8C8]" : null
         }`}
       >
-        <span className="text-2xl font-bold text-redberry-red all-small-caps">
-          გამოცდილება
-        </span>
+        {/* {experience === false ? null : (
+          <span className="text-2xl font-bold text-redberry-red all-small-caps">
+            გამოცდილება
+          </span>
+        )} */}
+
+        {isExperienceIsVisited ? (
+          <span className="text-2xl font-bold text-redberry-red all-small-caps">
+            გამოცდილება
+          </span>
+        ) : null}
+
         {initialValues.experiences.map((experience, index) => (
           <div key={index} className="flex flex-col my-4">
             <span className="font-bold">
