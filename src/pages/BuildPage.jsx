@@ -50,11 +50,11 @@ export default function BuildPage() {
   const index = Number(Object.keys(TITLES)[page]) + 1;
 
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row box-border font-helvetica-neue bg-[#F9F9F9]">
       <div className="flex h-screen w-7/12 flex-col">
         <Navbar title={title} titlesSize={titlesSize} index={index} />
 
-        <div className="flex h-screen flex-col bg-[#F9F9F9] font-helvetica-neue">
+        <div className="flex h-screen flex-col ">
           <Outlet context={[setPage, initialValues, handleUpdateForm]} />
         </div>
       </div>

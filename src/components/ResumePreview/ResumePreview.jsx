@@ -3,8 +3,10 @@ import phone from "../../assets/icons/phone.svg";
 import logo03 from "../../assets/img/logo03.png";
 
 export default function ResumePreview({ initialValues, page }) {
+  // console.log(initialValues.experiences);
+
   return (
-    <div className="flex flex-col h-screen w-5/12 p-12 font-helvetica-neue">
+    <div className="flex flex-col h-screen w-5/12 p-14 bg-white">
       <div
         className={`w-full h-max pb-6 flex justify-between ${
           page > 0 ? "border-b-[1px] border-[#C8C8C8]" : null

@@ -1,10 +1,9 @@
 import { Formik } from "formik";
-import { useCallback } from "react";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useOutletContext } from "react-router-dom";
-import { personalInfoSchema } from "../../schemas/schemas";
+import { useEffect, useCallback } from "react";
+import { useOutletContext, useNavigate } from "react-router-dom";
+
 import PersonalInfoForm from "./PersonalInfoForm";
+import { personalInfoSchema } from "../../schemas/schemas";
 
 export default function PersonalInfo() {
   const [setPage, initialValues, handleUpdateForm] = useOutletContext();
