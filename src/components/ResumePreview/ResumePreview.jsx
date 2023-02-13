@@ -5,13 +5,6 @@ import phone from "../../assets/icons/phone.svg";
 import logo03 from "../../assets/img/logo03.png";
 
 export default function ResumePreview({ initialValues, page }) {
-  // console.log(initialValues);
-  // let experience = false;
-  // initialValues.experiences.map(
-  //   (exp) => (experience = Object.values(exp).every((x) => x === ""))
-  // );
-  // console.log(experience);
-
   const [isPersonalVisited, setIsPersonalVisited] = useState(false);
   const [isExperienceVisited, setIsExperienceVisited] = useState(false);
   const [isEducationVisited, setIsEducationVisited] = useState(false);

@@ -44,7 +44,7 @@ export default function CustomSelect({ data, text, ...props }) {
     <div
       ref={node}
       onClick={show}
-      className={`relative flex justify-between py-2.5  bg-white rounded cursor-pointer px-4 w-full border-[1px] h-12 my-8 focus:outline-none focus:border-2 ${
+      className={`relative flex justify-between py-2.5  bg-white rounded cursor-pointer px-4 w-full border-[1px] h-12 my-2 focus:outline-none focus:border-2 ${
         selected.title
           ? "text-[#1a1a1a] border-[#98E37E]"
           : "border-[#BCBCBC] text-[#909090]"

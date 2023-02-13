@@ -1,8 +1,7 @@
 import { FieldArray, Form } from "formik";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import useAxiosFunction from "../../hooks/useAxiosFunction";
-import axios from "../../apis/degrees";
+
 import DateInput from "../layout/DateInput";
 import TextArea from "../layout/TextArea";
 import TextInput from "../layout/TextInput";
@@ -14,19 +13,7 @@ export default function EducationInfoForm({ saveForm, ...props }) {
     saveForm(props.values);
   }, [props.values, saveForm]);
 
-  const [degrees, error, loading, axiosFetch] = useAxiosFunction();
-
-  const getData = () => {
-    axiosFetch({
-      axiosInstance: axios,
-      method: "get",
-      url: "/degrees",
-    });
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
+  console.log(props.values);
 
   return (
     <Form>
@@ -55,8 +42,9 @@ export default function EducationInfoForm({ saveForm, ...props }) {
 
                       <div className="w-full h-max my-8 flex gap-16">
                         <div className="w-full">
+                          <span className="font-bold">ხარისხი</span>
                           <CustomSelect
-                            data={degrees}
+                            data={props.degrees}
                             text="აირჩიეთ ხარისხი"
                             name={`educations.${index}.degree`}
                           />
@@ -115,7 +103,7 @@ export default function EducationInfoForm({ saveForm, ...props }) {
             type="submit"
             className="h-12 w-36 rounded bg-[#6B40E3] hover:bg-[#7949FF] active:bg-[#512FAF] text-2xl text-white all-small-caps"
           >
-            შემდეგი
+            დასრულება
           </button>
         </div>
       </div>

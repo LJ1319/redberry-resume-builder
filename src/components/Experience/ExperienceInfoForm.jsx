@@ -10,8 +10,6 @@ export default function ExperienceInfoForm({ saveForm, ...props }) {
     saveForm(props.values);
   }, [props.values, saveForm]);
 
-  // console.log(props);
-
   return (
     <Form>
       <div className="h-full bg-[#f9f9f9]">
@@ -76,10 +74,6 @@ export default function ExperienceInfoForm({ saveForm, ...props }) {
                       </label>
                     </div>
                   ))}
-
-                {/* {typeof form.errors.educations === "string" ? (
-                  <div className="error">{form.errors.educations}</div>
-                ) : null} */}
 
                 <button
                   type="button"

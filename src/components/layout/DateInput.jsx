@@ -1,7 +1,6 @@
 import { useField } from "formik";
 
 import error from "../../assets/icons/error.svg";
-// import check from "../../assets/icons/check.svg";
 
 export default function DateInput({ label, ...props }) {
   const [field, meta] = useField(props);
@@ -31,9 +30,6 @@ export default function DateInput({ label, ...props }) {
           }`}
         />
       </label>
-
-      {/* <span className="text-sm text-[#2e2e2e]">{meta.error}</span> */}
-      {/* {meta.touched && !meta.error && <img src={check} alt="success" />} */}
 
       {meta.touched && meta.error && (
         <span className="flex justify-end">

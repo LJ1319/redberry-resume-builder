@@ -11,6 +11,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </BrowserRouter>
   </React.StrictMode>
 );
-
-// TODO: MAKE GITHUB REPO PUBLIC
-// TODO: CLEAN UP FILES AND DIRECTORIES

@@ -1,7 +1,3 @@
-// let number = "+995 598 11 08 49";
-// let formattedResult = number.replace(/[^+\d]+/g, "");
-// console.log(geoPhoneRegex.test(number));
-
 import { Form } from "formik";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -16,8 +12,6 @@ export default function PersonalInfoForm({ saveForm, ...props }) {
   useEffect(() => {
     saveForm(props.values);
   }, [props.values, saveForm]);
-
-  // console.log(props.errors);
 
   const [image, setImage] = useState("");
 
@@ -34,30 +28,6 @@ export default function PersonalInfoForm({ saveForm, ...props }) {
   useEffect(() => {
     setImage(JSON.parse(localStorage.getItem("RESUME")).image);
   }, []);
-
-  // FIX:
-  // function replacePhoneInput(e) {
-  // e.target.value = e.target.value.replace(/[^+\dA-Z]/g, "");
-  // .replace(/(.{4})/g, "$1 ")
-  // .trim();
-  // console.log(e);
-  // e.target.value = e.target.value.replace(/[^+\dA-Z]/g, "");
-  // e.target.value =
-  //   e.target.value.slice(0, 4) +
-  //   " " +
-  //   e.target.value.slice(4, 7) +
-  //   " " +
-  //   e.target.value.slice(7, 9) +
-  //   " " +
-  //   e.target.value.slice(9, 11) +
-  //   " " +
-  //   e.target.value.slice(11, 13);
-  // console.log(e.target.value);
-  // e.target.value = e.target.value.replace(
-  //   /(\d{3})(\d{3})(\d{2})(\d{2})(\d{2})/,
-  //   "$1 $2 $3 $4 $5"
-  // );
-  // }
 
   return (
     <Form>
@@ -126,7 +96,6 @@ export default function PersonalInfoForm({ saveForm, ...props }) {
           label="მობილურის ნომერი"
           name="phone_number"
           placeholder="+995 551 12 34 56"
-          // onKeyUp={replacePhoneInput}
         />
         <span className="text-sm text-[#2e2e2e]">
           უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს

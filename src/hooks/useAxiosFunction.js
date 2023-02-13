@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 const useAxiosFunction = () => {
   const [response, setResponse] = useState([]);
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false); //different!
+  const [loading, setLoading] = useState(false);
   const [controller, setController] = useState();
 
   const axiosFetch = async (configObj) => {
@@ -30,7 +30,6 @@ const useAxiosFunction = () => {
   useEffect(() => {
     console.log(controller);
 
-    // useEffect cleanup function
     return () => controller && controller.abort();
   }, [controller]);
 
