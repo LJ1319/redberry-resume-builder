@@ -21,7 +21,10 @@ export default function EducationInfoForm({ saveForm, ...props }) {
               <div className="w-9/12 mx-44 my-8 flex-col items-center justify-center content-center">
                 {props.values.educations.length > 0 &&
                   props.values.educations.map((education, index) => (
-                    <div className="w-full my-8" key={index}>
+                    <div
+                      className="w-full my-8 border-b-[1px] pb-4 border-[#C1C1C1]"
+                      key={index}
+                    >
                       <div className="w-full my-8">
                         <TextInput
                           label="სასწავლებელი"
@@ -34,18 +37,6 @@ export default function EducationInfoForm({ saveForm, ...props }) {
                         </span>
                       </div>
 
-                      {/* <div className="w-full">
-                        <TextInput
-                          label="ხარისხი"
-                          name={`educations.${index}.degree`}
-                          type="text"
-                          placeholder="აირჩიეთ ხარისხი"
-                        />
-                        <span className="text-sm text-[#2e2e2e]">
-                          მინიმუმ 2 სიმბოლო
-                        </span>
-                      </div> */}
-
                       <div className="w-full h-max my-8 flex gap-16">
                         <div className="w-full">
                           <TextInput
@@ -54,9 +45,6 @@ export default function EducationInfoForm({ saveForm, ...props }) {
                             type="text"
                             placeholder="აირჩიეთ ხარისხი"
                           />
-                          <span className="text-sm text-[#2e2e2e]">
-                            მინიმუმ 2 სიმბოლო
-                          </span>
                         </div>
 
                         <div className="w-full">
@@ -77,11 +65,6 @@ export default function EducationInfoForm({ saveForm, ...props }) {
                       </label>
                     </div>
                   ))}
-
-                {/* {typeof form.errors.educations === "string" ? (
-                  <div className="error">{form.errors.educations}</div>
-                ) : null} */}
-
                 <button
                   type="button"
                   className="w-72 bg-[#62A1EB] h-12 rounded text-white"

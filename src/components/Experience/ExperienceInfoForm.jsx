@@ -21,7 +21,10 @@ export default function ExperienceInfoForm({ saveForm, ...props }) {
               <div className="w-9/12 mx-44 my-8 flex-col items-center justify-center content-center">
                 {props.values.experiences.length > 0 &&
                   props.values.experiences.map((experience, index) => (
-                    <div className="w-full my-8" key={index}>
+                    <div
+                      className="w-full my-8 border-b-[1px] pb-4 border-[#C1C1C1]"
+                      key={index}
+                    >
                       <div className="w-full my-8">
                         <TextInput
                           label="თანამდებობა"

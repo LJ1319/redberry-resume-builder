@@ -35,7 +35,7 @@ export default function PersonalInfoForm({ saveForm, ...props }) {
     setImage(JSON.parse(localStorage.getItem("RESUME")).image);
   }, []);
 
-  // TODO:
+  // FIX:
   // function replacePhoneInput(e) {
   // e.target.value = e.target.value.replace(/[^+\dA-Z]/g, "");
   // .replace(/(.{4})/g, "$1 ")
@@ -88,7 +88,6 @@ export default function PersonalInfoForm({ saveForm, ...props }) {
               hidden
               accept="image/*"
               onChange={handleImageUpload}
-              // value={props.initialValues.image}
             />
           </div>
         </label>
