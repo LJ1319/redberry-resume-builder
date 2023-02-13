@@ -23,8 +23,14 @@ export default function ResumePreview({ initialValues, page }) {
 
     localStorage.setItem(
       "isExperienceVisited",
+      JSON.stringify(isPersonalVisited)
+    );
+
+    localStorage.setItem(
+      "isExperienceVisited",
       JSON.stringify(isExperienceVisited)
     );
+
     localStorage.setItem(
       "isEducationVisited",
       JSON.stringify(isEducationVisited)
@@ -32,7 +38,7 @@ export default function ResumePreview({ initialValues, page }) {
   }, [page, isPersonalVisited, isExperienceVisited, isEducationVisited]);
 
   useEffect(() => {
-    setIsPersonalVisited(localStorage.getItem("isExperienceVisited"));
+    setIsPersonalVisited(localStorage.getItem("isPersonalVisited"));
     setIsExperienceVisited(localStorage.getItem("isExperienceVisited"));
     setIsEducationVisited(localStorage.getItem("isExperienceVisited"));
   }, []);
@@ -126,7 +132,7 @@ export default function ResumePreview({ initialValues, page }) {
           </span>
         ) : null}
 
-        {initialValues.educations.map((education, index) => (
+        {/* {initialValues.educations.map((education, index) => (
           <div key={index} className="flex flex-col my-4">
             <span className="font-bold">
               {education.institute
@@ -137,7 +143,7 @@ export default function ResumePreview({ initialValues, page }) {
             <span className="italic text-[#909090]">{education.due_date}</span>
             <span className="mt-2">{education.description}</span>
           </div>
-        ))}
+        ))} */}
       </div>
 
       <span className="w-max h-max my-auto">

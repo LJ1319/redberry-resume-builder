@@ -1,14 +1,65 @@
 import { FieldArray, Form } from "formik";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import useAxiosFunction from "../../hooks/useAxiosFunction";
+import axios from "../../apis/degrees";
 import DateInput from "../layout/DateInput";
 import TextArea from "../layout/TextArea";
 import TextInput from "../layout/TextInput";
+import { useState } from "react";
+import { useRef } from "react";
+
+import downarrow from "../../assets/icons/downarrow.svg";
 
 export default function EducationInfoForm({ saveForm, ...props }) {
   useEffect(() => {
     saveForm(props.values);
   }, [props.values, saveForm]);
+
+  const [degrees, error, loading, axiosFetch] = useAxiosFunction();
+
+  const getData = () => {
+    axiosFetch({
+      axiosInstance: axios,
+      method: "get",
+      url: "/degrees",
+    });
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const node = useRef();
+
+  const [selected, setSelected] = useState("");
+  const [open, setOpen] = useState(false);
+
+  const show = () => {
+    setOpen(!open);
+  };
+
+  const handleClick = (e) => {
+    if (node.current.contains(e.target)) {
+      return;
+    }
+    setOpen(false);
+  };
+
+  const handleChange = (selectedValue) => {
+    setOpen(false);
+    setSelected(selectedValue);
+    // props.setFieldValue("degree", selectedValue);
+    console.log(props.values);
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+    };
+  }, []);
 
   // console.log(props);
 
@@ -38,15 +89,54 @@ export default function EducationInfoForm({ saveForm, ...props }) {
                       </div>
 
                       <div className="w-full h-max my-8 flex gap-16">
+                        {/* CUSTOM DROPDOWN */}
                         <div className="w-full">
-                          <TextInput
+                          {/* <TextInput
                             label="ხარისხი"
                             name={`educations.${index}.degree`}
                             type="text"
                             placeholder="აირჩიეთ ხარისხი"
-                          />
-                        </div>
+                          /> */}
 
+                          <div
+                            ref={node}
+                            onClick={show}
+                            className="relative flex justify-between my-12 w-full h-12 p-2.5 text-lg font-bold bg-[#EBEBEB] rounded-lg cursor-pointer"
+                          >
+                            {selected ? selected.title : "აირჩიეთ ხარისხი"}
+                            <button type="button">
+                              <img src={downarrow} alt="down arrow" />
+                            </button>
+
+                            {open && (
+                              <ul className="absolute ml-[-10px] mt-10 z-10 w-full h-auto overflow-auto text-lg font-bold bg-white rounded-lg drop-shadow-2xl">
+                                {degrees.map((degree) => (
+                                  <li
+                                    name={`educations.${index}.degree`}
+                                    key={degree.id}
+                                    onClick={() => {
+                                      handleChange(degree);
+                                      props.setFieldValue(
+                                        `educations.${index}.degree`,
+                                        degree
+                                      );
+                                      setOpen(false);
+                                    }}
+                                    className={`${
+                                      selected.id === degree.id
+                                        ? `bg-[#e7f0f8]`
+                                        : ""
+                                    } relative p-2.5 cursor-pointer hover:bg-[#e7f0f8]`}
+                                  >
+                                    <span className="font-normal text-left truncate">
+                                      {degree.title}
+                                    </span>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                          </div>
+                        </div>
                         <div className="w-full">
                           <span className="font-bold">დამთავრების რიცხვი</span>
                           <DateInput
@@ -83,6 +173,14 @@ export default function EducationInfoForm({ saveForm, ...props }) {
             );
           }}
         </FieldArray>
+
+        {/* <button
+          type="button"
+          className="h-12 w-36 rounded bg-[#6B40E3] hover:bg-[#7949FF] active:bg-[#512FAF] text-2xl text-white all-small-caps"
+          onClick={getData}
+        >
+          Get Degrees
+        </button> */}
 
         <div className="mx-44 w-9/12 flex justify-between my-16">
           <button
