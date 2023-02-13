@@ -6,10 +6,7 @@ import axios from "../../apis/degrees";
 import DateInput from "../layout/DateInput";
 import TextArea from "../layout/TextArea";
 import TextInput from "../layout/TextInput";
-import { useState } from "react";
-import { useRef } from "react";
 
-import downarrow from "../../assets/icons/downarrow.svg";
 import CustomSelect from "../layout/CustomSelect";
 
 export default function EducationInfoForm({ saveForm, ...props }) {
@@ -30,41 +27,6 @@ export default function EducationInfoForm({ saveForm, ...props }) {
   useEffect(() => {
     getData();
   }, []);
-
-  // const node = useRef();
-
-  // const [selected, setSelected] = useState("");
-  // const [open, setOpen] = useState(false);
-
-  // const show = () => {
-  //   setOpen(!open);
-  // };
-
-  // const handleClick = (e) => {
-  //   if (node.current.contains(e.target)) {
-  //     return;
-  //   }
-  //   setOpen(false);
-  // };
-
-  // const handleChange = (selectedValue) => {
-  //   // console.log(selectedValue);
-  //   setOpen(false);
-  //   setSelected(selectedValue);
-  //   // props.setFieldValue("degree", selectedValue);
-  //   // console.log(props.values);
-  //   // console.log(selected);
-  // };
-
-  // useEffect(() => {
-  //   document.addEventListener("mousedown", handleClick);
-
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClick);
-  //   };
-  // }, []);
-
-  // console.log(props);
 
   return (
     <Form>
@@ -93,54 +55,6 @@ export default function EducationInfoForm({ saveForm, ...props }) {
 
                       <div className="w-full h-max my-8 flex gap-16">
                         <div className="w-full">
-                          {/* <div
-                            ref={node}
-                            onClick={show}
-                            className={`relative flex justify-between py-2.5 text-[#909090] bg-white rounded cursor-pointer px-4 w-full border-[1px] h-12 my-8 focus:outline-none focus:border-2 border-[#BCBCBC] ${
-                              selected.title
-                                ? "text-[#1a1a1a] border-[#98E37E]"
-                                : ""
-                            }`}
-                          >
-                            {selected ? selected.title : "აირჩიეთ ხარისხი"}
-                            <button type="button">
-                              <img src={downarrow} alt="down arrow" />
-                            </button>
-
-                            {open && (
-                              <ul className="absolute ml-[-18px] mt-10 z-10 w-full h-auto overflow-auto text-lg text-[#1a1a1a] font-bold bg-white rounded drop-shadow-2xl ">
-                                {degrees.map((degree) => (
-                                  <li
-                                    name={`educations.${index}.degree`}
-                                    key={degree.id}
-                                    onClick={() => {
-                                      handleChange(degree);
-                                      // console.log(degree);
-                                      // console.log(degree.id);
-                                      // console.log(selected.id);
-                                      // setSelected(degree);
-
-                                      props.setFieldValue(
-                                        `educations.${index}.degree`,
-                                        degree
-                                      );
-                                      // setOpen(false);
-                                    }}
-                                    className={`${
-                                      selected.id === degree.id
-                                        ? `bg-[#c3dcee]`
-                                        : ""
-                                    } relative p-2.5 cursor-pointer hover:bg-[#e7f0f8]`}
-                                  >
-                                    <span className="font-normal text-left truncate">
-                                      {degree.title}
-                                    </span>
-                                  </li>
-                                ))}
-                              </ul>
-                            )}
-                          </div> */}
-
                           <CustomSelect
                             data={degrees}
                             text="აირჩიეთ ხარისხი"
@@ -183,14 +97,6 @@ export default function EducationInfoForm({ saveForm, ...props }) {
             );
           }}
         </FieldArray>
-
-        {/* <button
-          type="button"
-          className="h-12 w-36 rounded bg-[#6B40E3] hover:bg-[#7949FF] active:bg-[#512FAF] text-2xl text-white all-small-caps"
-          onClick={getData}
-        >
-          Get Degrees
-        </button> */}
 
         <div className="mx-44 w-9/12 flex justify-between my-16">
           <button
