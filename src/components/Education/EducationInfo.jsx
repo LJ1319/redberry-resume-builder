@@ -28,15 +28,24 @@ export default function EducationInfo() {
     getData();
   }, []);
 
-  function handleSubmit() {
-    axiosFetch({
-      axiosInstance: axios,
-      method: "post",
-      url: "/cvs",
-      requestConfig: {
-        data: {},
-      },
-    });
+  const base64 = initialValues.image;
+
+  async function handleSubmit() {
+    const blob = await fetch(base64).then((res) => res.blob());
+
+    console.log(blob);
+
+    const res = await axios.post(
+      "https://resume.redberryinternship.ge/api/cvs",
+      initialValues,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+
+    console.log(res.data);
   }
 
   return (

@@ -17,7 +17,8 @@ const useAxiosFunction = () => {
         ...requestConfig,
         signal: ctrl.signal,
       });
-      console.log(res);
+      // console.log(res.data);
+      // console.log(res.status);
       setResponse(res.data);
     } catch (err) {
       console.log(err.message);

@@ -19,7 +19,7 @@ export default function PersonalInfoForm({ saveForm, ...props }) {
     let reader = new FileReader();
     let file = event.target.files[0];
     reader.addEventListener("load", () => {
-      setImage(reader.result);
+      setImage(file);
       props.setFieldValue("image", reader.result);
     });
     reader.readAsDataURL(file);

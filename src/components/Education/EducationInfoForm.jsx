@@ -13,7 +13,9 @@ export default function EducationInfoForm({ saveForm, ...props }) {
     saveForm(props.values);
   }, [props.values, saveForm]);
 
-  console.log(props.values);
+  // const formData = new FormData(props.values);
+
+  // console.log(props.values);
 
   return (
     <Form>

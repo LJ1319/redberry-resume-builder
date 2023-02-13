@@ -17,11 +17,11 @@ export const personalInfoSchema = yup.object().shape({
       message: "მინიმუმ 2 სიმბოლო, მხოლოდ ქართული სიმბოლოები!",
     })
     .required("სავალდებულო!"),
-  image: yup.string().required("სავალდებულო!"),
+  // image: yup.string().required("სავალდებულო!"),
   about_me: yup.string(),
   email: yup
     .string()
-    .email()
+    // .email()
     .matches(redberryEmailRegex, {
       message: "უნდა მთავრდებოდეს @redberry.ge-თი!",
     })
