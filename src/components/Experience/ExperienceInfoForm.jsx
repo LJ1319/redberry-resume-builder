@@ -1,6 +1,6 @@
 import { FieldArray, Form } from "formik";
-import { useState } from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import DateInput from "../layout/DateInput";
 import TextArea from "../layout/TextArea";
 import TextInput from "../layout/TextInput";
@@ -11,15 +11,6 @@ export default function ExperienceInfoForm({ saveForm, ...props }) {
   }, [props.values, saveForm]);
 
   // console.log(props);
-
-  // const [startDate, setStartDate] = useState("");
-  // const [dueDate, setDueDate] = useState("");
-
-  // useEffect(() => {
-  //   setStartDate(
-  //     JSON.parse(localStorage.getItem("RESUME")).experiences.start_date
-  //   );
-  // }, []);
 
   return (
     <Form>
@@ -83,6 +74,10 @@ export default function ExperienceInfoForm({ saveForm, ...props }) {
                     </div>
                   ))}
 
+                {/* {typeof form.errors.educations === "string" ? (
+                  <div className="error">{form.errors.educations}</div>
+                ) : null} */}
+
                 <button
                   type="button"
                   className="w-72 bg-[#62A1EB] h-12 rounded text-white"
@@ -98,13 +93,31 @@ export default function ExperienceInfoForm({ saveForm, ...props }) {
                 >
                   მეტი გამოცდილების დამატება
                 </button>
-                {/* {typeof form.errors.educations === "string" ? (
-                  <div className="error">{form.errors.educations}</div>
-                ) : null} */}
               </div>
             );
           }}
         </FieldArray>
+
+        <div className="mx-44 w-9/12 flex justify-between my-16">
+          <button
+            type="button"
+            className="h-12 w-36 rounded bg-[#6B40E3] hover:bg-[#7949FF] active:bg-[#512FAF]"
+          >
+            <Link
+              to="/build"
+              className="block h-full text-center p-1.5 font-helvetica-neue text-2xl text-white all-small-caps"
+            >
+              უკან
+            </Link>
+          </button>
+
+          <button
+            type="submit"
+            className="h-12 w-36 rounded bg-[#6B40E3] hover:bg-[#7949FF] active:bg-[#512FAF] text-2xl text-white all-small-caps"
+          >
+            შემდეგი
+          </button>
+        </div>
       </div>
     </Form>
   );
