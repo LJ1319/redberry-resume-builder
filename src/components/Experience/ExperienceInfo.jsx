@@ -18,7 +18,7 @@ export default function ExperienceInfo() {
   const handleSubmit = useCallback(
     async (values) => {
       await sleep(500);
-      navigate("education");
+      navigate("/build/education");
     },
     [navigate]
   );
