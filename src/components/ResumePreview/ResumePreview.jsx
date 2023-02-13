@@ -56,17 +56,28 @@ export default function ResumePreview({ initialValues, page }) {
       </div>
 
       <div
-        className={`w-full h-max pb-6 flex justify-between ${
+        className={`w-full h-max pt-2 pb-6 flex flex-col justify-between ${
           page > 1 ? "border-b-[1px] border-[#C8C8C8]" : null
         }`}
       >
+        <span className="text-2xl font-bold text-redberry-red all-small-caps">
+          გამოცდილება
+        </span>
         {initialValues.experiences.map((experience, index) => (
-          <div key={index}>
-            <span>{experience.position}</span>
-            <span>{experience.employer}</span>
-            <span>{experience.start_date}</span>
-            <span>{experience.due_date}</span>
-            <span>{experience.description}</span>
+          <div key={index} className="flex flex-col my-4">
+            <span className="font-bold">
+              {experience.position
+                ? experience.position.concat(", ", experience.employer)
+                : experience.employer}
+            </span>
+
+            <span className="italic text-[#909090]">
+              {experience.start_date
+                ? experience.start_date.concat(" - ", experience.due_date)
+                : experience.due_date}
+            </span>
+
+            <span className="mt-2">{experience.description}</span>
           </div>
         ))}
       </div>
