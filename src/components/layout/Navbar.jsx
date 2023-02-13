@@ -3,7 +3,7 @@ import backarrow from "../../assets/icons/backarrow.svg";
 
 export default function Navbar({ title, titlesSize, index }) {
   return (
-    <div className="flex h-32 items-center bg-[#F9F9F9] text-[#1A1A1A] all-small-caps">
+    <div className="flex my-8 h-32 items-center bg-[#F9F9F9] text-[#1A1A1A] all-small-caps">
       <button className="mx-16 flex h-10 w-10 cursor-pointer items-center rounded-full bg-white">
         <Link to="/" className="flex w-full justify-center">
           <img src={backarrow} alt="backToHome" />
