@@ -132,18 +132,18 @@ export default function ResumePreview({ initialValues, page }) {
           </span>
         ) : null}
 
-        {/* {initialValues.educations.map((education, index) => (
+        {initialValues.educations.map((education, index) => (
           <div key={index} className="flex flex-col my-4">
             <span className="font-bold">
               {education.institute
-                ? education.institute.concat(", ", education.degree)
-                : education.degree}
+                ? education.institute.concat(", ", education.degree.title)
+                : education.degree.title}
             </span>
 
             <span className="italic text-[#909090]">{education.due_date}</span>
             <span className="mt-2">{education.description}</span>
           </div>
-        ))} */}
+        ))}
       </div>
 
       <span className="w-max h-max my-auto">
