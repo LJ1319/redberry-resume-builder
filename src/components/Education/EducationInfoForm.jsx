@@ -90,7 +90,7 @@ export default function EducationInfoForm({ saveForm, ...props }) {
             className="h-12 w-36 rounded bg-[#6B40E3] hover:bg-[#7949FF] active:bg-[#512FAF]"
           >
             <Link
-              to="/build"
+              to="/build/experience"
               className="block h-full text-center p-1.5 font-helvetica-neue text-2xl text-white all-small-caps"
             >
               უკან
