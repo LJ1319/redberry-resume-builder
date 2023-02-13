@@ -119,7 +119,7 @@ export default function ResumePreview({ initialValues, page }) {
         ))}
       </div>
 
-      <div className="w-full h-full pt-2 pb-6 flex flex-col justify-between">
+      <div className="w-full h-full pt-2 pb-6 flex flex-col justify-start">
         {isEducationVisited === true ? (
           <span className="text-2xl font-bold text-redberry-red all-small-caps">
             განათლება
