@@ -51,9 +51,10 @@ export const educationInfoSchema = yup.object().shape({
     yup.object().shape({
       institute: yup.string().required("სავალდებულო"),
       degree: yup
-        .string()
-        .matches(geoRegex, {
-          message: "მინიმუმ 2 სიმბოლო, მხოლოდ ქართული სიმბოლოები!",
+        .object()
+        .shape({
+          id: yup.string().required(),
+          title: yup.string().required(),
         })
         .required("სავალდებულო"),
       due_date: yup.date().required("სავალდებულო!"),
