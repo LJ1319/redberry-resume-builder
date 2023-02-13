@@ -10,6 +10,7 @@ import { useState } from "react";
 import { useRef } from "react";
 
 import downarrow from "../../assets/icons/downarrow.svg";
+import CustomSelect from "../layout/CustomSelect";
 
 export default function EducationInfoForm({ saveForm, ...props }) {
   useEffect(() => {
@@ -30,38 +31,38 @@ export default function EducationInfoForm({ saveForm, ...props }) {
     getData();
   }, []);
 
-  const node = useRef();
+  // const node = useRef();
 
-  const [selected, setSelected] = useState("");
-  const [open, setOpen] = useState(false);
+  // const [selected, setSelected] = useState("");
+  // const [open, setOpen] = useState(false);
 
-  const show = () => {
-    setOpen(!open);
-  };
+  // const show = () => {
+  //   setOpen(!open);
+  // };
 
-  const handleClick = (e) => {
-    if (node.current.contains(e.target)) {
-      return;
-    }
-    setOpen(false);
-  };
+  // const handleClick = (e) => {
+  //   if (node.current.contains(e.target)) {
+  //     return;
+  //   }
+  //   setOpen(false);
+  // };
 
-  const handleChange = (selectedValue) => {
-    // console.log(selectedValue);
-    setOpen(false);
-    setSelected(selectedValue);
-    // props.setFieldValue("degree", selectedValue);
-    // console.log(props.values);
-    // console.log(selected);
-  };
+  // const handleChange = (selectedValue) => {
+  //   // console.log(selectedValue);
+  //   setOpen(false);
+  //   setSelected(selectedValue);
+  //   // props.setFieldValue("degree", selectedValue);
+  //   // console.log(props.values);
+  //   // console.log(selected);
+  // };
 
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClick);
+  // useEffect(() => {
+  //   document.addEventListener("mousedown", handleClick);
 
-    return () => {
-      document.removeEventListener("mousedown", handleClick);
-    };
-  }, []);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClick);
+  //   };
+  // }, []);
 
   // console.log(props);
 
@@ -92,7 +93,7 @@ export default function EducationInfoForm({ saveForm, ...props }) {
 
                       <div className="w-full h-max my-8 flex gap-16">
                         <div className="w-full">
-                          <div
+                          {/* <div
                             ref={node}
                             onClick={show}
                             className={`relative flex justify-between py-2.5 text-[#909090] bg-white rounded cursor-pointer px-4 w-full border-[1px] h-12 my-8 focus:outline-none focus:border-2 border-[#BCBCBC] ${
@@ -138,7 +139,13 @@ export default function EducationInfoForm({ saveForm, ...props }) {
                                 ))}
                               </ul>
                             )}
-                          </div>
+                          </div> */}
+
+                          <CustomSelect
+                            data={degrees}
+                            text="აირჩიეთ ხარისხი"
+                            name={`educations.${index}.degree`}
+                          />
                         </div>
                         <div className="w-full">
                           <span className="font-bold">დამთავრების რიცხვი</span>
