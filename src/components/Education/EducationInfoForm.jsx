@@ -47,10 +47,12 @@ export default function EducationInfoForm({ saveForm, ...props }) {
   };
 
   const handleChange = (selectedValue) => {
+    // console.log(selectedValue);
     setOpen(false);
     setSelected(selectedValue);
     // props.setFieldValue("degree", selectedValue);
-    console.log(props.values);
+    // console.log(props.values);
+    // console.log(selected);
   };
 
   useEffect(() => {
@@ -89,19 +91,15 @@ export default function EducationInfoForm({ saveForm, ...props }) {
                       </div>
 
                       <div className="w-full h-max my-8 flex gap-16">
-                        {/* CUSTOM DROPDOWN */}
                         <div className="w-full">
-                          {/* <TextInput
-                            label="ხარისხი"
-                            name={`educations.${index}.degree`}
-                            type="text"
-                            placeholder="აირჩიეთ ხარისხი"
-                          /> */}
-
                           <div
                             ref={node}
                             onClick={show}
-                            className="relative flex justify-between my-12 w-full h-12 p-2.5 text-lg font-bold bg-[#EBEBEB] rounded-lg cursor-pointer"
+                            className={`relative flex justify-between py-2.5 text-[#909090] bg-white rounded cursor-pointer px-4 w-full border-[1px] h-12 my-8 focus:outline-none focus:border-2 border-[#BCBCBC] ${
+                              selected.title
+                                ? "text-[#1a1a1a] border-[#98E37E]"
+                                : ""
+                            }`}
                           >
                             {selected ? selected.title : "აირჩიეთ ხარისხი"}
                             <button type="button">
@@ -109,22 +107,27 @@ export default function EducationInfoForm({ saveForm, ...props }) {
                             </button>
 
                             {open && (
-                              <ul className="absolute ml-[-10px] mt-10 z-10 w-full h-auto overflow-auto text-lg font-bold bg-white rounded-lg drop-shadow-2xl">
+                              <ul className="absolute ml-[-18px] mt-10 z-10 w-full h-auto overflow-auto text-lg text-[#1a1a1a] font-bold bg-white rounded drop-shadow-2xl ">
                                 {degrees.map((degree) => (
                                   <li
                                     name={`educations.${index}.degree`}
                                     key={degree.id}
                                     onClick={() => {
                                       handleChange(degree);
+                                      // console.log(degree);
+                                      // console.log(degree.id);
+                                      // console.log(selected.id);
+                                      // setSelected(degree);
+
                                       props.setFieldValue(
                                         `educations.${index}.degree`,
                                         degree
                                       );
-                                      setOpen(false);
+                                      // setOpen(false);
                                     }}
                                     className={`${
                                       selected.id === degree.id
-                                        ? `bg-[#e7f0f8]`
+                                        ? `bg-[#c3dcee]`
                                         : ""
                                     } relative p-2.5 cursor-pointer hover:bg-[#e7f0f8]`}
                                   >
