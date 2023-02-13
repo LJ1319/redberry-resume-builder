@@ -9,7 +9,7 @@ export default function CustomSelect({ data, text, ...props }) {
   const node = useRef();
 
   const [selected, setSelected] = useLocalStorageState({
-    key: "SELECTED",
+    key: field.name,
     value: false,
   });
   const [open, setOpen] = useState(false);
