@@ -5,13 +5,14 @@ import downarrow from "../../assets/icons/downarrow.svg";
 import { useLocalStorageState } from "../../hooks/useLocalStorageState";
 
 export default function CustomSelect({ data, text, ...props }) {
-  const [field, meta, helpers] = useField(props);
+  const [field, helpers] = useField(props);
   const node = useRef();
 
   const [selected, setSelected] = useLocalStorageState({
     key: field.name,
     value: false,
   });
+
   const [open, setOpen] = useState(false);
 
   const show = () => {

@@ -17,11 +17,11 @@ export const personalInfoSchema = yup.object().shape({
       message: "მინიმუმ 2 სიმბოლო, მხოლოდ ქართული სიმბოლოები!",
     })
     .required("სავალდებულო!"),
-  // image: yup.string().required("სავალდებულო!"),
+  image: yup.string().required("სავალდებულო!"),
   about_me: yup.string(),
   email: yup
     .string()
-    // .email()
+    .email()
     .matches(redberryEmailRegex, {
       message: "უნდა მთავრდებოდეს @redberry.ge-თი!",
     })
@@ -37,8 +37,8 @@ export const personalInfoSchema = yup.object().shape({
 export const experienceInfoSchema = yup.object().shape({
   experiences: yup.array().of(
     yup.object().shape({
-      position: yup.string().required("სავალდებულო"),
-      employer: yup.string().required("სავალდებულო"),
+      position: yup.string().min(2).required("სავალდებულო"),
+      employer: yup.string().min(2).required("სავალდებულო"),
       start_date: yup.date().required("სავალდებულო!"),
       due_date: yup.date().required("სავალდებულო!"),
       description: yup.string().required("სავალდებულო"),
@@ -49,7 +49,7 @@ export const experienceInfoSchema = yup.object().shape({
 export const educationInfoSchema = yup.object().shape({
   educations: yup.array().of(
     yup.object().shape({
-      institute: yup.string().required("სავალდებულო"),
+      institute: yup.string().min(2).required("სავალდებულო"),
       degree: yup
         .object()
         .shape({

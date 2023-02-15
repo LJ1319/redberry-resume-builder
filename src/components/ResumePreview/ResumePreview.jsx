@@ -129,7 +129,10 @@ export default function ResumePreview({ initialValues, page }) {
           <div key={index} className="flex flex-col my-4">
             <span className="font-bold">
               {education.institute
-                ? education.institute.concat(", ", education.degree.title)
+                ? education.institute.concat(
+                    ", ",
+                    education.degree.title ? education.degree.title : ""
+                  )
                 : education.degree.title}
             </span>
 

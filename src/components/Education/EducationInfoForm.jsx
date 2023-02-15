@@ -13,10 +13,6 @@ export default function EducationInfoForm({ saveForm, ...props }) {
     saveForm(props.values);
   }, [props.values, saveForm]);
 
-  // const formData = new FormData(props.values);
-
-  // console.log(props.values);
-
   return (
     <Form>
       <div className="h-full bg-[#f9f9f9]">

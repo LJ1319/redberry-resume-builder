@@ -1,10 +1,9 @@
 import { Formik } from "formik";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
 import EducationInfoForm from "./EducationInfoForm";
 
 import { educationInfoSchema } from "../../schemas/schemas";
-import useAxiosFunction from "../../hooks/useAxiosFunction";
 import axios from "../../apis/degrees";
 
 export default function EducationInfo() {
@@ -14,15 +13,18 @@ export default function EducationInfo() {
     setPage(2);
   }, [setPage]);
 
-  const [degrees, error, loading, axiosFetch] = useAxiosFunction();
+  const [degrees, setDegrees] = useState([]);
 
-  const getData = () => {
-    axiosFetch({
-      axiosInstance: axios,
-      method: "get",
-      url: "/degrees",
-    });
-  };
+  async function getData() {
+    try {
+      const response = await axios.get(
+        "https://resume.redberryinternship.ge/api/degrees"
+      );
+      setDegrees(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   useEffect(() => {
     getData();
@@ -30,14 +32,24 @@ export default function EducationInfo() {
 
   const base64 = initialValues.image;
 
+  let eduData = [];
+  initialValues.educations.forEach((education) => {
+    eduData.push({ ...education, degree_id: education.degree.id });
+    delete eduData.degree;
+  });
+
   async function handleSubmit() {
     const blob = await fetch(base64).then((res) => res.blob());
 
-    console.log(blob);
+    const data = {
+      ...initialValues,
+      image: blob,
+      educations: eduData,
+    };
 
     const res = await axios.post(
       "https://resume.redberryinternship.ge/api/cvs",
-      initialValues,
+      data,
       {
         headers: {
           "Content-Type": "multipart/form-data",
@@ -45,7 +57,7 @@ export default function EducationInfo() {
       }
     );
 
-    console.log(res.data);
+    res.status === 201 ? console.log("POSTED") : console.log("NOT POSTED");
   }
 
   return (
