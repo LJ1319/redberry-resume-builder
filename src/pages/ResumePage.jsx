@@ -1,9 +1,10 @@
-import { useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { ResumeContext } from "../context/ResumeContext";
 
 import { Link } from "react-router-dom";
 
 import backarrow from "../assets/icons/backarrow.svg";
+import close from "../assets/icons/close.svg";
 
 import email from "../assets/icons/email.svg";
 import phone from "../assets/icons/phone.svg";
@@ -12,21 +13,23 @@ import logo03 from "../assets/img/logo03.png";
 export default function ResumePage() {
   const { resumeData } = useContext(ResumeContext);
 
+  const [isModalClosed, setIsModalClosed] = useState(false);
+
   useEffect(() => {
     localStorage.clear();
   }, []);
 
-  console.log(resumeData);
+  console.log(isModalClosed);
 
   return (
-    <div className="flex justify-evenly py-16 h-screen">
+    <div className="flex justify-evenly py-16 h-screen font-helvetica-neue">
       <button className="mx-16 flex h-10 w-10 cursor-pointer items-center rounded-full bg-[#F9F9F9]">
         <Link to="/" className="flex w-full justify-center">
           <img src={backarrow} alt="backToHome" />
         </Link>
       </button>
 
-      <div className="flex flex-col w-5/12 p-14 h-full bg-white font-helvetica-neue border-black border-[1px]">
+      <div className="flex flex-col w-5/12 p-14 h-full bg-white border-black border-[1px]">
         <div className="w-full h-max pb-6 flex justify-between border-b-[1px] border-[#C8C8C8]">
           <div className="flex flex-col">
             <span className="text-6xl font-bold text-redberry-red all-small-caps">
@@ -113,6 +116,20 @@ export default function ResumePage() {
           <img src={logo03} alt="redberry-logo" />
         </span>
       </div>
+
+      {isModalClosed ? (
+        <div className="h-40 w-1/5 rounded-lg shadow-2xl p-8 flex justify-center items-center">
+          <span className="text-2xl font-bold">
+            რეზიუმე წარმატებით გაიგზავნა 🎉
+          </span>
+          <img
+            src={close}
+            alt="close"
+            className="w-3 h-3 relative -top-16 left-4 cursor-pointer"
+            onClick={() => setIsModalClosed(!isModalClosed)}
+          />
+        </div>
+      ) : null}
     </div>
   );
 }
