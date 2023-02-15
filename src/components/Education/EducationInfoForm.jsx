@@ -19,14 +19,14 @@ export default function EducationInfoForm({ saveForm, ...props }) {
         <FieldArray name="educations">
           {({ push }) => {
             return (
-              <div className="w-9/12 mx-44 my-8 flex-col items-center justify-center content-center">
+              <div className="mx-44 my-8 w-9/12 flex-col content-center items-center justify-center">
                 {props.values.educations.length > 0 &&
                   props.values.educations.map((education, index) => (
                     <div
-                      className="w-full my-8 border-b-[1px] pb-4 border-[#C1C1C1]"
+                      className="my-8 w-full border-b-[1px] border-[#C1C1C1] pb-4"
                       key={index}
                     >
-                      <div className="w-full my-8">
+                      <div className="my-8 w-full">
                         <TextInput
                           label="სასწავლებელი"
                           name={`educations.${index}.institute`}
@@ -38,7 +38,7 @@ export default function EducationInfoForm({ saveForm, ...props }) {
                         </span>
                       </div>
 
-                      <div className="w-full h-max my-8 flex gap-16">
+                      <div className="my-8 flex h-max w-full gap-16">
                         <div className="w-full">
                           <span className="font-bold">ხარისხი</span>
                           <CustomSelect
@@ -67,7 +67,7 @@ export default function EducationInfoForm({ saveForm, ...props }) {
                   ))}
                 <button
                   type="button"
-                  className="w-72 bg-[#62A1EB] h-12 rounded text-white"
+                  className="h-12 w-72 rounded bg-[#62A1EB] text-white"
                   onClick={() =>
                     push({
                       institute: "",
@@ -84,14 +84,14 @@ export default function EducationInfoForm({ saveForm, ...props }) {
           }}
         </FieldArray>
 
-        <div className="mx-44 w-9/12 flex justify-between my-16">
+        <div className="mx-44 my-16 flex w-9/12 justify-between">
           <button
             type="button"
             className="h-12 w-36 rounded bg-[#6B40E3] hover:bg-[#7949FF] active:bg-[#512FAF]"
           >
             <Link
               to="/build/experience"
-              className="block h-full text-center p-1.5 font-helvetica-neue text-2xl text-white all-small-caps"
+              className="block h-full p-1.5 text-center font-helvetica-neue text-2xl text-white all-small-caps"
             >
               უკან
             </Link>
@@ -99,7 +99,7 @@ export default function EducationInfoForm({ saveForm, ...props }) {
 
           <button
             type="submit"
-            className="h-12 w-36 rounded bg-[#6B40E3] hover:bg-[#7949FF] active:bg-[#512FAF] text-2xl text-white all-small-caps"
+            className="h-12 w-36 rounded bg-[#6B40E3] text-2xl text-white all-small-caps hover:bg-[#7949FF] active:bg-[#512FAF]"
           >
             დასრულება
           </button>

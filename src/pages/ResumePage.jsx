@@ -19,33 +19,31 @@ export default function ResumePage() {
     localStorage.clear();
   }, []);
 
-  console.log(isModalClosed);
-
   return (
-    <div className="flex justify-evenly py-16 h-screen font-helvetica-neue">
+    <div className="flex h-screen justify-evenly py-16 font-helvetica-neue">
       <button className="mx-16 flex h-10 w-10 cursor-pointer items-center rounded-full bg-[#F9F9F9]">
         <Link to="/" className="flex w-full justify-center">
           <img src={backarrow} alt="backToHome" />
         </Link>
       </button>
 
-      <div className="flex flex-col w-5/12 p-14 h-full bg-white border-black border-[1px]">
-        <div className="w-full h-max pb-6 flex justify-between border-b-[1px] border-[#C8C8C8]">
+      <div className="flex h-full w-5/12 flex-col border-[1px] border-black bg-white p-14">
+        <div className="flex h-max w-full justify-between border-b-[1px] border-[#C8C8C8] pb-6">
           <div className="flex flex-col">
             <span className="text-6xl font-bold text-redberry-red all-small-caps">
               {resumeData.name} {resumeData.surname}
             </span>
 
             {resumeData.email !== "" ? (
-              <div className="flex items-center gap-2 mt-4">
-                <img src={email} alt="email" className="w-4 h-4" />
+              <div className="mt-4 flex items-center gap-2">
+                <img src={email} alt="email" className="h-4 w-4" />
                 <span>{resumeData.email}</span>
               </div>
             ) : null}
 
             {resumeData.phone_number !== "" ? (
               <div className="flex items-center gap-2">
-                <img src={phone} alt="phone" className="w-4 h-4" />
+                <img src={phone} alt="phone" className="h-4 w-4" />
                 <span>
                   {resumeData.phone_number.replace(
                     /(\d{3})(\d{3})(\d{2})(\d{2})(\d{2})/,
@@ -56,7 +54,7 @@ export default function ResumePage() {
             ) : null}
 
             {resumeData.about_me !== "" ? (
-              <div className="flex flex-col mt-4">
+              <div className="mt-4 flex flex-col">
                 <span className="text-2xl font-bold text-redberry-red all-small-caps">
                   ჩემ შესახებ
                 </span>
@@ -74,12 +72,12 @@ export default function ResumePage() {
           ) : null}
         </div>
 
-        <div className="w-full h-max pt-2 pb-6 flex flex-col justify-between border-b-[1px] border-[#C8C8C8]">
+        <div className="flex h-max w-full flex-col justify-between border-b-[1px] border-[#C8C8C8] pt-2 pb-6">
           <span className="text-2xl font-bold text-redberry-red all-small-caps">
             გამოცდილება
           </span>
           {resumeData.experiences.map((experience, index) => (
-            <div key={index} className="flex flex-col my-4">
+            <div key={index} className="my-4 flex flex-col">
               <span className="font-bold">
                 {experience.position.concat(", ", experience.employer)}
               </span>
@@ -93,12 +91,12 @@ export default function ResumePage() {
           ))}
         </div>
 
-        <div className="w-full h-full pt-2 pb-6 flex flex-col justify-start">
+        <div className="flex h-full w-full flex-col justify-start pt-2 pb-6">
           <span className="text-2xl font-bold text-redberry-red all-small-caps">
             განათლება
           </span>
           {resumeData.educations.map((education, index) => (
-            <div key={index} className="flex flex-col my-4">
+            <div key={index} className="my-4 flex flex-col">
               <span className="font-bold">
                 {(education.institute.concat(", "), education.degree)}
               </span>
@@ -112,20 +110,20 @@ export default function ResumePage() {
           ))}
         </div>
 
-        <span className="w-max h-max my-auto">
+        <span className="my-auto h-max w-max">
           <img src={logo03} alt="redberry-logo" />
         </span>
       </div>
 
       {isModalClosed ? (
-        <div className="h-40 w-1/5 rounded-lg shadow-2xl p-8 flex justify-center items-center">
+        <div className="flex h-40 w-1/5 items-center justify-center rounded-lg p-8 shadow-2xl">
           <span className="text-2xl font-bold">
             რეზიუმე წარმატებით გაიგზავნა 🎉
           </span>
           <img
             src={close}
             alt="close"
-            className="w-3 h-3 relative -top-16 left-4 cursor-pointer"
+            className="relative -top-16 left-4 h-3 w-3 cursor-pointer"
             onClick={() => setIsModalClosed(!isModalClosed)}
           />
         </div>

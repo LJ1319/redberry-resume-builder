@@ -45,9 +45,9 @@ export default function CustomSelect({ data, text, ...props }) {
     <div
       ref={node}
       onClick={show}
-      className={`relative flex justify-between py-2.5  bg-white rounded cursor-pointer px-4 w-full border-[1px] h-12 my-2 focus:outline-none focus:border-2 ${
+      className={`relative my-2 flex h-12  w-full cursor-pointer justify-between rounded border-[1px] bg-white py-2.5 px-4 focus:border-2 focus:outline-none ${
         selected.title
-          ? "text-[#1a1a1a] border-[#98E37E]"
+          ? "border-[#98E37E] text-[#1a1a1a]"
           : "border-[#BCBCBC] text-[#909090]"
       }`}
     >
@@ -57,7 +57,7 @@ export default function CustomSelect({ data, text, ...props }) {
       </button>
 
       {open && (
-        <ul className="absolute -ml-4 mt-10 z-10 w-full h-auto overflow-auto text-lg text-[#1a1a1a] font-bold bg-white rounded drop-shadow-2xl">
+        <ul className="absolute z-10 -ml-4 mt-10 h-auto w-full overflow-auto rounded bg-white text-lg font-bold text-[#1a1a1a] drop-shadow-2xl">
           {data.map((degree) => (
             <li
               {...field}
@@ -70,9 +70,9 @@ export default function CustomSelect({ data, text, ...props }) {
               }}
               className={`${
                 selected.id === degree.id ? `bg-[#C3DCEE]` : ""
-              } relative p-2.5 cursor-pointer hover:bg-[#e7f0f8]`}
+              } relative cursor-pointer p-2.5 hover:bg-[#e7f0f8]`}
             >
-              <span className="font-normal text-left truncate">
+              <span className="truncate text-left font-normal">
                 {degree.title}
               </span>
             </li>

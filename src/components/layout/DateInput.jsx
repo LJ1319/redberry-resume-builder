@@ -18,7 +18,7 @@ export default function DateInput({ label, ...props }) {
         <input
           {...field}
           {...props}
-          className={`px-4 w-full border-[1px] h-12 rounded my-2 focus:outline-none focus:border-2 
+          className={`my-2 h-12 w-full rounded border-[1px] px-4 focus:border-2 focus:outline-none 
           ${
             meta.touched && meta.error
               ? "border-red-500"

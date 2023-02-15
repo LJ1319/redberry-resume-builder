@@ -31,7 +31,7 @@ export default function PersonalInfoForm({ saveForm, ...props }) {
 
   return (
     <Form>
-      <div className="mx-44 w-max my-8 flex gap-16">
+      <div className="mx-44 my-8 flex w-max gap-16">
         <div className="w-96">
           <TextInput label="სახელი" name="name" placeholder="ანზორ" />
           <span className="text-sm text-[#2e2e2e]">
@@ -39,7 +39,7 @@ export default function PersonalInfoForm({ saveForm, ...props }) {
           </span>
         </div>
 
-        <div className="w-96 ml-1.5">
+        <div className="ml-1.5 w-96">
           <TextInput label="გვარი" name="surname" placeholder="მუმლაძე" />
           <span className="text-sm text-[#2e2e2e]">
             მინიმუმ 2 ასო, ქართული ასოები
@@ -73,14 +73,14 @@ export default function PersonalInfoForm({ saveForm, ...props }) {
         )}
       </div>
 
-      <div className="mx-44 w-9/12 my-8">
+      <div className="mx-44 my-8 w-9/12">
         <label>
           <span className="font-bold">ჩემ შესახებ (არასავალდებულო)</span>
           <TextArea name="about_me" placeholder="ზოგადი ინფო შენ შესახებ" />
         </label>
       </div>
 
-      <div className="mx-44 w-9/12 my-8">
+      <div className="mx-44 my-8 w-9/12">
         <TextInput
           label="ელ.ფოსტა"
           name="email"
@@ -91,7 +91,7 @@ export default function PersonalInfoForm({ saveForm, ...props }) {
         </span>
       </div>
 
-      <div className="mx-44 w-9/12 my-8">
+      <div className="mx-44 my-8 w-9/12">
         <TextInput
           label="მობილურის ნომერი"
           name="phone_number"
@@ -102,10 +102,10 @@ export default function PersonalInfoForm({ saveForm, ...props }) {
         </span>
       </div>
 
-      <div className="mx-44 w-9/12 flex justify-end my-16">
+      <div className="mx-44 my-16 flex w-9/12 justify-end">
         <button
           type="submit"
-          className="h-12 w-36 rounded bg-[#6B40E3] hover:bg-[#7949FF] active:bg-[#512FAF] text-2xl text-white all-small-caps"
+          className="h-12 w-36 rounded bg-[#6B40E3] text-2xl text-white all-small-caps hover:bg-[#7949FF] active:bg-[#512FAF]"
         >
           შემდეგი
         </button>

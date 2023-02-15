@@ -37,9 +37,9 @@ export default function ResumePreview({ initialValues, page }) {
   }, []);
 
   return (
-    <div className="flex flex-col h-screen w-5/12 p-14 bg-white">
+    <div className="flex h-screen w-5/12 flex-col bg-white p-14">
       <div
-        className={`w-full h-max pb-6 flex justify-between ${
+        className={`flex h-max w-full justify-between pb-6 ${
           isExperienceVisited === true
             ? "border-b-[1px] border-[#C8C8C8]"
             : null
@@ -51,15 +51,15 @@ export default function ResumePreview({ initialValues, page }) {
           </span>
 
           {initialValues.email !== "" ? (
-            <div className="flex items-center gap-2 mt-4">
-              <img src={email} alt="email" className="w-4 h-4" />
+            <div className="mt-4 flex items-center gap-2">
+              <img src={email} alt="email" className="h-4 w-4" />
               <span>{initialValues.email}</span>
             </div>
           ) : null}
 
           {initialValues.phone_number !== "" ? (
             <div className="flex items-center gap-2">
-              <img src={phone} alt="phone" className="w-4 h-4" />
+              <img src={phone} alt="phone" className="h-4 w-4" />
               <span>
                 {initialValues.phone_number.replace(
                   /(\d{3})(\d{3})(\d{2})(\d{2})(\d{2})/,
@@ -70,7 +70,7 @@ export default function ResumePreview({ initialValues, page }) {
           ) : null}
 
           {initialValues.about_me !== "" ? (
-            <div className="flex flex-col mt-4">
+            <div className="mt-4 flex flex-col">
               <span className="text-2xl font-bold text-redberry-red all-small-caps">
                 ჩემ შესახებ
               </span>
@@ -89,7 +89,7 @@ export default function ResumePreview({ initialValues, page }) {
       </div>
 
       <div
-        className={`w-full h-max pt-2 pb-6 flex flex-col justify-between ${
+        className={`flex h-max w-full flex-col justify-between pt-2 pb-6 ${
           isEducationVisited === true ? "border-b-[1px] border-[#C8C8C8]" : null
         }`}
       >
@@ -100,7 +100,7 @@ export default function ResumePreview({ initialValues, page }) {
         ) : null}
 
         {initialValues.experiences.map((experience, index) => (
-          <div key={index} className="flex flex-col my-4">
+          <div key={index} className="my-4 flex flex-col">
             <span className="font-bold">
               {experience.position
                 ? experience.position.concat(", ", experience.employer)
@@ -118,7 +118,7 @@ export default function ResumePreview({ initialValues, page }) {
         ))}
       </div>
 
-      <div className="w-full h-full pt-2 pb-6 flex flex-col justify-start">
+      <div className="flex h-full w-full flex-col justify-start pt-2 pb-6">
         {isEducationVisited === true ? (
           <span className="text-2xl font-bold text-redberry-red all-small-caps">
             განათლება
@@ -126,7 +126,7 @@ export default function ResumePreview({ initialValues, page }) {
         ) : null}
 
         {initialValues.educations.map((education, index) => (
-          <div key={index} className="flex flex-col my-4">
+          <div key={index} className="my-4 flex flex-col">
             <span className="font-bold">
               {education.institute
                 ? education.institute.concat(
@@ -142,7 +142,7 @@ export default function ResumePreview({ initialValues, page }) {
         ))}
       </div>
 
-      <span className="w-max h-max my-auto">
+      <span className="my-auto h-max w-max">
         <img src={logo03} alt="redberry-logo" />
       </span>
     </div>

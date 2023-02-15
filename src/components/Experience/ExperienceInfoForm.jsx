@@ -16,14 +16,14 @@ export default function ExperienceInfoForm({ saveForm, ...props }) {
         <FieldArray name="experiences">
           {({ push }) => {
             return (
-              <div className="w-9/12 mx-44 my-8 flex-col items-center justify-center content-center">
+              <div className="mx-44 my-8 w-9/12 flex-col content-center items-center justify-center">
                 {props.values.experiences.length > 0 &&
                   props.values.experiences.map((experience, index) => (
                     <div
-                      className="w-full my-8 border-b-[1px] pb-4 border-[#C1C1C1]"
+                      className="my-8 w-full border-b-[1px] border-[#C1C1C1] pb-4"
                       key={index}
                     >
-                      <div className="w-full my-8">
+                      <div className="my-8 w-full">
                         <TextInput
                           label="თანამდებობა"
                           name={`experiences.${index}.position`}
@@ -47,7 +47,7 @@ export default function ExperienceInfoForm({ saveForm, ...props }) {
                         </span>
                       </div>
 
-                      <div className="w-full h-max my-8 flex gap-16">
+                      <div className="my-8 flex h-max w-full gap-16">
                         <div className="w-full">
                           <span className="font-bold">დაწყების რიცხვი</span>
                           <DateInput
@@ -77,7 +77,7 @@ export default function ExperienceInfoForm({ saveForm, ...props }) {
 
                 <button
                   type="button"
-                  className="w-72 bg-[#62A1EB] h-12 rounded text-white"
+                  className="h-12 w-72 rounded bg-[#62A1EB] text-white"
                   onClick={() =>
                     push({
                       position: "",
@@ -95,14 +95,14 @@ export default function ExperienceInfoForm({ saveForm, ...props }) {
           }}
         </FieldArray>
 
-        <div className="mx-44 w-9/12 flex justify-between my-16">
+        <div className="mx-44 my-16 flex w-9/12 justify-between">
           <button
             type="button"
             className="h-12 w-36 rounded bg-[#6B40E3] hover:bg-[#7949FF] active:bg-[#512FAF]"
           >
             <Link
               to="/build"
-              className="block h-full text-center p-1.5 font-helvetica-neue text-2xl text-white all-small-caps"
+              className="block h-full p-1.5 text-center font-helvetica-neue text-2xl text-white all-small-caps"
             >
               უკან
             </Link>
@@ -110,7 +110,7 @@ export default function ExperienceInfoForm({ saveForm, ...props }) {
 
           <button
             type="submit"
-            className="h-12 w-36 rounded bg-[#6B40E3] hover:bg-[#7949FF] active:bg-[#512FAF] text-2xl text-white all-small-caps"
+            className="h-12 w-36 rounded bg-[#6B40E3] text-2xl text-white all-small-caps hover:bg-[#7949FF] active:bg-[#512FAF]"
           >
             შემდეგი
           </button>

@@ -12,11 +12,11 @@ export default function TextArea({ label, ...props }) {
         <textarea
           {...field}
           {...props}
-          className={`p-4 w-full border-[1px] h-28 rounded my-2 focus:outline-none focus:border-2 ${
+          className={`my-2 h-28 w-full rounded border-[1px] p-4 focus:border-2 focus:outline-none ${
             meta.touched && meta.error
               ? "border-red-500"
               : meta.value && !meta.error
-              ? "border-[#98E37E] bg-[url(@/assets/icons/check.svg)] bg-no-repeat bg-right bg-origin-content"
+              ? "border-[#98E37E] bg-[url(@/assets/icons/check.svg)] bg-right bg-no-repeat bg-origin-content"
               : "border-[#BCBCBC]"
           }`}
         />
