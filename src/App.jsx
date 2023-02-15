@@ -4,6 +4,7 @@ import BuildPage from "./pages/BuildPage";
 import PersonalInfo from "./components/Personal/PersonalInfo";
 import ExperienceInfo from "./components/Experience/ExperienceInfo";
 import EducationInfo from "./components/Education/EducationInfo";
+import ResumePage from "./pages/ResumePage";
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
         <Route path="experience" element={<ExperienceInfo />} />
         <Route path="education" element={<EducationInfo />} />
       </Route>
+
+      <Route path="resume" element={<ResumePage />} />
     </Routes>
   );
 }

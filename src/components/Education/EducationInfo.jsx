@@ -5,6 +5,7 @@ import EducationInfoForm from "./EducationInfoForm";
 
 import { educationInfoSchema } from "../../schemas/schemas";
 import axios from "../../apis/degrees";
+import { useNavigate } from "react-router-dom";
 
 export default function EducationInfo() {
   const [setPage, initialValues, handleUpdateForm] = useOutletContext();
@@ -38,6 +39,8 @@ export default function EducationInfo() {
     delete eduData.degree;
   });
 
+  const navigate = useNavigate();
+
   async function handleSubmit() {
     const blob = await fetch(base64).then((res) => res.blob());
 
@@ -57,7 +60,7 @@ export default function EducationInfo() {
       }
     );
 
-    res.status === 201 ? console.log("POSTED") : console.log("NOT POSTED");
+    res.status === 201 ? navigate("/resume") : console.log("NOT POSTED");
   }
 
   return (
