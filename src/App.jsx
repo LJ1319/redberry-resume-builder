@@ -6,6 +6,7 @@ import ExperienceInfo from "./components/Experience/ExperienceInfo";
 import EducationInfo from "./components/Education/EducationInfo";
 import ResumePage from "./pages/ResumePage";
 import { ResumeContextProvider } from "./context/ResumeContext";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         </Route>
 
         <Route path="resume" element={<ResumePage />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </ResumeContextProvider>
   );
