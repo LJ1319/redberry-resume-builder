@@ -1,14 +1,17 @@
 import { Formik } from "formik";
-import { useState, useEffect } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { useOutletContext, useNavigate } from "react-router-dom";
+
 import EducationInfoForm from "./EducationInfoForm";
 
 import { educationInfoSchema } from "../../schemas/schemas";
+import { ResumeContext } from "../../context/ResumeContext";
+
 import axios from "../../apis/degrees";
-import { useNavigate } from "react-router-dom";
 
 export default function EducationInfo() {
   const [setPage, initialValues, handleUpdateForm] = useOutletContext();
+  const { setResumeData } = useContext(ResumeContext);
 
   useEffect(() => {
     setPage(2);
@@ -60,7 +63,8 @@ export default function EducationInfo() {
       }
     );
 
-    res.status === 201 ? navigate("/resume") : console.log("NOT POSTED");
+    setResumeData(res.data);
+    res.status === 201 ? navigate("/resume") : console.log(res.data);
   }
 
   return (

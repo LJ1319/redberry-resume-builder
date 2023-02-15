@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 import email from "../../assets/icons/email.svg";
 import phone from "../../assets/icons/phone.svg";
 import logo03 from "../../assets/img/logo03.png";

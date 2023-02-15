@@ -57,7 +57,7 @@ export default function CustomSelect({ data, text, ...props }) {
       </button>
 
       {open && (
-        <ul className="absolute ml-[-18px] mt-10 z-10 w-full h-auto overflow-auto text-lg text-[#1a1a1a] font-bold bg-white rounded drop-shadow-2xl">
+        <ul className="absolute -ml-4 mt-10 z-10 w-full h-auto overflow-auto text-lg text-[#1a1a1a] font-bold bg-white rounded drop-shadow-2xl">
           {data.map((degree) => (
             <li
               {...field}
